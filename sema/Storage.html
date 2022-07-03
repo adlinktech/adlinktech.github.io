@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="icon" href="https://xfii.b-cdn.net/uploads/i-pi-smarc/5ieu2go.jpg">
+  <title>Storage Access | ADLINK SEMA®</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://adlinktech.github.io/sema/Storage.html">
+  <!-- Alternative links -->
+  
+    
+  
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <style>
+    .pace .pace-progress {
+       background: #1E92FB;
+       height: 2px;
+     }
+    .pace .pace-progress-inner {
+       box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB;
+     }
+    .pace .pace-activity {
+       border-top-color: #1E92FB;
+       border-left-color: #1E92FB;
+    }
+  </style>
+  <!-- Icon -->
+  <link rel="Shortcut Icon" href="/images/favicon.ico">
+  <!-- CSS -->
+
+  <script
+    src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"
+    crossorigin="anonymous"></script>
+
+  <script>
+  jQuery(document).ready(function ($) {
+          $('#tabs').tab();
+  });
+
+  $('button').addClass('btn-primary').text('Switch to Orange Tab');
+  $('button').click(function(){
+        $('#tabs a[href=#orange]').tab('show');
+  });
+
+</script>
+
+<script>
+jQuery(document).ready(function ($) {
+        $('#tabs').tab();
+});
+
+$('button').addClass('btn-primary').text('Switch to Orange Tab');
+$('button').click(function(){
+      $('#tabs a[href=#ava]').tab('show');
+});
+
+</script>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+
+ <!-- Hotjar Tracking Code for https://ipi.wiki -->
+  <script>
+      (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:1081538,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+
+  <!-- build:css build/css/navy.css -->
+  
+<link rel="stylesheet" href="/css/navy.css">
+
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://adlinktech.github.io/css/font/fontawesome.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="ADLINK SEMA®" type="application/atom+xml">
+  <!-- Open Graph -->
+  <meta name="description" content="Support to access 1K-Bytes EEPROM on BMC device. List of Sys Interface To get the storage capabilities cat &#x2F;sys&#x2F;bus&#x2F;platform&#x2F;devices&#x2F;adl-bmc-nvmem&#x2F;capabilities&#x2F;nvmemcap  To read the storage area hexdu">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Storage Access">
+<meta property="og:url" content="https://adlinktech.github.io/sema/Storage.html">
+<meta property="og:site_name" content="ADLINK SEMA®">
+<meta property="og:description" content="Support to access 1K-Bytes EEPROM on BMC device. List of Sys Interface To get the storage capabilities cat &#x2F;sys&#x2F;bus&#x2F;platform&#x2F;devices&#x2F;adl-bmc-nvmem&#x2F;capabilities&#x2F;nvmemcap  To read the storage area hexdu">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-01T19:50:22.324Z">
+<meta property="article:modified_time" content="2022-07-01T17:12:54.704Z">
+<meta property="article:author" content="ADLINK Technology Inc. All Rights Reserved.">
+<meta name="twitter:card" content="summary">
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-161199547-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <header id="header" class="header-wrapper">
+  <div id="header-inner" class="inner wrapper">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo"></a>
+    </h1>
+    <nav id="main-nav">    
+	</nav>
+    <div id="lang-select-wrap">
+     <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/adlink/sema-linux" class="main-nav-link"><i class="fa fa-github-alt"></i> Linux</a>
+	  <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/adlink/sema-windows" class="main-nav-link"><i class="fa fa-github-alt"></i> Windows</a>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Storage Access</h1>
+              </header>
+              <div class="article-content bullets" itemprop="articleBody">
+                <p>Support to access 1K-Bytes EEPROM on BMC device.</p>
+<h4 id="List-of-Sys-Interface" class="article-heading"><a href="#List-of-Sys-Interface" class="headerlink" title="List of Sys Interface"></a>List of Sys Interface<a onclick="parent.postMessage( {msg: '?page=Storage.html#List-of-Sys-Interface'}, '*');" class="article-anchor" href="#List-of-Sys-Interface" aria-hidden="true"></a></h4><ul>
+<li><p>To get the storage capabilities</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /sys/bus/platform/devices/adl-bmc-nvmem/capabilities/nvmemcap</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>To read the storage area</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexdump /sys/bus/nvmem/devices/&lt;nvmem index&gt;/nvmem</span><br></pre></td></tr></table></figure>
+<p>For example: <strong>hexdump /sys/bus/nvmem/devices/nvmem544/nvmem</strong></p>
+</li>
+<li><p>To write the storage area</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexer /sys/bus/nvmem/devices/&lt;nvmem index&gt;/nvmem</span><br></pre></td></tr></table></figure>
+<p>For example:<strong>$ hexer /sys/bus/nvmem/devices/nvmem544/nvmem</strong></p>
+<p><strong>Note</strong>: Hexer will open a nvmem file in editor mode. To edit the data press <strong>r (replace</strong>) and enter new data then press escape and <strong>:wq</strong> to save. Then read the same file using hexdump to check saved changes.</p>
+</li>
+</ul>
+<p><br></p>
+<h4 id="List-of-SEMA-EAPI-Support-Windows-amp-Linux" class="article-heading"><a href="#List-of-SEMA-EAPI-Support-Windows-amp-Linux" class="headerlink" title="List of SEMA EAPI (Support Windows &amp; Linux)"></a>List of SEMA EAPI (Support Windows &amp; Linux)<a onclick="parent.postMessage( {msg: '?page=Storage.html#List-of-SEMA-EAPI-Support-Windows-amp-Linux'}, '*');" class="article-anchor" href="#List-of-SEMA-EAPI-Support-Windows-amp-Linux" aria-hidden="true"></a></h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiStorageCap(uint32_t Id, uint32_t* pStorageSize, uint32_t* pBlockLength)</span><br></pre></td></tr></table></figure>
+<p><strong>Description</strong></p>
+<p>Get the capabilities of the selected storage area</p>
+<ul>
+<li><p>Parameters:</p>
+<ul>
+<li><p>uint32_t Id:</p>
+<p>Select ID as the parameter</p>
+<p>| ID                  | Description                                            |<br>| —————————- | ——————————————————————————— |<br>| EAPI_ID_STORAGE_STD | Standard Storage Area &gt;=32 bytes for read/write access |</p>
+</li>
+<li><p>uint32_t* pStorageSize:</p>
+<p>Pointer to a buffer that receives storage area size. This parameter can be NULL if the data is not required</p>
+</li>
+<li><p>uint32_t* pBlockLength:</p>
+<p>Pointer to a buffer that receives the storage areas alignment/Block size. This parameter can be NULL if the data is not required. The value must be used to calculate write block alignment and size.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p> <br></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiStorageAreaRead(</span><br><span class="line">        uint32_t Id,</span><br><span class="line">        uint32_t nOffset,</span><br><span class="line">        void* pBuffer,</span><br><span class="line">        uint32_t nBufLen,</span><br><span class="line">        uint32_t nByteCnt</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>Description</strong></p>
+<p>Read data to the selected user data area</p>
+<ul>
+<li><p>Parameters:</p>
+<ul>
+<li><p>uint32_t Id:</p>
+<p>Select ID as the parameter</p>
+<p>| ID                  | Description                                            |<br>| —————————- | ——————————————————————————— |<br>| EAPI_ID_STORAGE_STD | Standard Storage Area &gt;=32 bytes for read/write access |</p>
+</li>
+<li><p>uint32_t nOffset:</p>
+<p> Storage area start address offset in bytes</p>
+</li>
+<li><p>void* pBuffer:</p>
+<p>Pointer to a buffer that receives the read data.</p>
+</li>
+<li><p>uint32_t nBufLen:</p>
+<p>Size, in bytes, of the buffer pointed to by the pBuffer parameter</p>
+</li>
+<li><p>uint32_t nByteCnt:</p>
+<p>Size, in bytes, of the information read to the buffer pointed to by the pBuffer parameter</p>
+</li>
+</ul>
+</li>
+</ul>
+<p> <br></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiStorageAreaWrite(</span><br><span class="line">        uint32_t Id,</span><br><span class="line">        uint32_t nOffset,</span><br><span class="line">        void* pBuffer,</span><br><span class="line">        uint32_t  nByteCnt</span><br><span class="line">)		</span><br></pre></td></tr></table></figure>
+<p><strong>Description</strong></p>
+<p>Write data to the selected user data area</p>
+<ul>
+<li><p>Parameters:</p>
+<ul>
+<li><p>uint32_t Id:</p>
+<p>Select ID as the parameter</p>
+<p>| ID                  | Description                                            |<br>| —————————- | ——————————————————————————— |<br>| EAPI_ID_STORAGE_STD | Standard Storage Area &gt;=32 bytes for read/write access |</p>
+</li>
+<li><p>uint32_t nOffset:</p>
+<p>Storage area start address offset in bytes. This value must be a multiple of *pBlockLength</p>
+</li>
+<li><p>void* pBuffer:</p>
+<p>Pointer to a buffer containing the data to be stored</p>
+</li>
+<li><p>uint32_t  nByteCnt:</p>
+<p>Size, in bytes, of the information pointed to by the pBuffer parameter</p>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2022-07-01T17:12:54.704Z" itemprop="dateModified">page.last_updated</time>
+                <a href="SmartFan.html" class="article-footer-prev" title="-Smart Fan Control"><i class="fa fa-chevron-left"></i><span>page.prev</span></a>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title"><details open><summary>Overview</summary><a href="index.html" class="sidebar-link first">Introduction</a></details open></strong><strong class="sidebar-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="sidebar-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="sidebar-link">How to Install on Windows</a><a href="HowToUse.html" class="sidebar-link">How to use SEMA Utility</a></details open></strong><strong class="sidebar-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="sidebar-link first">Feature List</a><a href="BoardInfo.html" class="sidebar-link">-Board Infomration</a><a href="WatchDog.html" class="sidebar-link">-Watchdog Access</a><a href="GPIO.html" class="sidebar-link">-GPIO Access</a><a href="Backlight.html" class="sidebar-link">-Backlight Control</a><a href="i2c.html" class="sidebar-link">-I2C Control</a><a href="SmartFan.html" class="sidebar-link">-Smart Fan Control</a><a href="Storage.html" class="sidebar-link current">-Storage Access</a></details open></strong>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapperforfooter">
+   <div class="inner">
+         <div class="grid__item site-footer__payment-icons" style="display:none;">
+            <span class="visually-hidden">Payment methods</span>
+            <ul class="payment-icons list--inline site-footer__icon-list">
+               <li class="payment-icon">
+                  <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-paypal">
+                     <title id="pi-paypal">PayPal</title>
+                     <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path>
+                     <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path>
+                     <path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"></path>
+                     <path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"></path>
+                     <path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"></path>
+                  </svg>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div class="grid__item medium-up--hide one-half small--one-whole">
+         <div class="grid__item site-footer__payment-icons" style="display:none;">
+            <span class="visually-hidden">Payment methods</span>
+            <ul class="payment-icons list--inline site-footer__icon-list">
+               <li class="payment-icon">
+                  <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-paypal">
+                     <title id="pi-paypal">PayPal</title>
+                     <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path>
+                     <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path>
+                     <path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"></path>
+                     <path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"></path>
+                     <path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"></path>
+                  </svg>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div class="grid__item small--one-whole  site-footer-item-align-center">
+         <small class="site-footer__copyright-content">© 2022, <a href="/" title="">ADLINK Technology Inc.- SEMA®</a></small>
+         <small class="site-footer__copyright-content site-footer__copyright-content--powered-by"><a target="_blank" rel="nofollow noopener" href="https://adlinktech.github.io/" aria-describedby="a11y-new-window-external-message"> </a></small>
+      </div>
+   </div>
+   </div>
+</footer>
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/sema/" class="mobile-nav-link current header">menu.SEMA</a>
+     <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/adlink/sema-linux" class="main-nav-link"><i class="fa fa-github-alt"></i> Linux</a>
+	  <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/adlink/sema-windows" class="main-nav-link"><i class="fa fa-github-alt"></i> Windows</a>
+ 
+    </ul>
+    
+      <strong class="mobile-nav-title"><details open><summary>Overview</summary><a href="index.html" class="mobile-nav-link first">Introduction</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="mobile-nav-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="mobile-nav-link">How to Install on Windows</a><a href="HowToUse.html" class="mobile-nav-link">How to use SEMA Utility</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="mobile-nav-link first">Feature List</a><a href="BoardInfo.html" class="mobile-nav-link">-Board Infomration</a><a href="WatchDog.html" class="mobile-nav-link">-Watchdog Access</a><a href="GPIO.html" class="mobile-nav-link">-GPIO Access</a><a href="Backlight.html" class="mobile-nav-link">-Backlight Control</a><a href="i2c.html" class="mobile-nav-link">-I2C Control</a><a href="SmartFan.html" class="mobile-nav-link">-Smart Fan Control</a><a href="Storage.html" class="mobile-nav-link current">-Storage Access</a></details open></strong>
+    
+  </div>
+  
+
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+
+<script src="/js/lang_select.js"></script>
+
+
+<script src="/js/toc.js"></script>
+
+
+<script src="/js/mobile_nav.js"></script>
+
+<!-- endbuild -->
+
+<!-- Algolia -->
+
+
+<!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body>
+</html>
