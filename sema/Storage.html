@@ -37,30 +37,6 @@
     src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"
     crossorigin="anonymous"></script>
 
-  <script>
-  jQuery(document).ready(function ($) {
-          $('#tabs').tab();
-  });
-
-  $('button').addClass('btn-primary').text('Switch to Orange Tab');
-  $('button').click(function(){
-        $('#tabs a[href=#orange]').tab('show');
-  });
-
-</script>
-
-<script>
-jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-});
-
-$('button').addClass('btn-primary').text('Switch to Orange Tab');
-$('button').click(function(){
-      $('#tabs a[href=#ava]').tab('show');
-});
-
-</script>
-
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -95,8 +71,8 @@ $('button').click(function(){
 <meta property="og:site_name" content="ADLINK SEMA®">
 <meta property="og:description" content="Support to access 1K-Bytes EEPROM on BMC device. List of Sys Interface To get the storage capabilities cat &#x2F;sys&#x2F;bus&#x2F;platform&#x2F;devices&#x2F;adl-bmc-nvmem&#x2F;capabilities&#x2F;nvmemcap  To read the storage area hexdu">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-03T17:26:09.244Z">
-<meta property="article:modified_time" content="2022-07-03T17:26:09.244Z">
+<meta property="article:published_time" content="2022-07-01T19:50:22.324Z">
+<meta property="article:modified_time" content="2022-07-01T17:12:54.704Z">
 <meta property="article:author" content="ADLINK Technology Inc. All Rights Reserved.">
 <meta name="twitter:card" content="summary">
   <!-- Google Analytics -->
@@ -122,10 +98,16 @@ $('button').click(function(){
     </h1>
     <nav id="main-nav">    
 	</nav>
+	<div id = "tab_active">
+    <script>window.onload = function(){var url = window.location.search;const urlParams = new URLSearchParams(url);var type = urlParams.get("type");if (type == 'bmc'){ $('ul.nav-tabs li').removeClass('active'); $('ul.nav-tabs li:nth-child(2)').addClass("active").show();}}</script>
+    </div>
+	
     <div id="lang-select-wrap">
      <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/adlink/sema-linux" class="main-nav-link"><i class="fa fa-github-alt"></i> Linux</a>
 	  <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/adlink/sema-windows" class="main-nav-link"><i class="fa fa-github-alt"></i> Windows</a>
     </div>
+	
+
     <a id="mobile-nav-toggle">
       <span class="mobile-nav-toggle-bar"></span>
       <span class="mobile-nav-toggle-bar"></span>
@@ -233,7 +215,7 @@ $('button').click(function(){
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2022-07-03T17:26:09.244Z" itemprop="dateModified">page.last_updated</time>
+                <time class="article-footer-updated" datetime="2022-07-01T17:12:54.704Z" itemprop="dateModified">page.last_updated</time>
                 <a href="SmartFan.html" class="article-footer-prev" title="-Smart Fan Control"><i class="fa fa-chevron-left"></i><span>page.prev</span></a>
               </footer>
             </div>
@@ -286,7 +268,7 @@ $('button').click(function(){
       </div>
       <div class="grid__item small--one-whole  site-footer-item-align-center">
          <small class="site-footer__copyright-content">© 2022, <a href="/" title="">ADLINK Technology Inc.- SEMA®</a></small>
-         <small class="site-footer__copyright-content site-footer__copyright-content--powered-by"><a target="_blank" rel="nofollow noopener" href="https://adlinktech.github.io/sema/index.html" aria-describedby="a11y-new-window-external-message"> </a></small>
+         <small class="site-footer__copyright-content site-footer__copyright-content--powered-by"><a target="_blank" rel="nofollow noopener" href="https://adlinktech.github.io/" aria-describedby="a11y-new-window-external-message"> </a></small>
       </div>
    </div>
    </div>
