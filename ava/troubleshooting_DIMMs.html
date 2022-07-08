@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="icon" href="https://xfii.b-cdn.net/uploads/i-pi-smarc/5ieu2go.jpg">
-  <title>Developer's Guide | ADLINK SEMA®</title>
+  <title>ADLINK SEMA®</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://adlinktech.github.io/sema/DeveloperGuide.html">
+  <link rel="canonical" href="https://adlinktech.github.io/ava/troubleshooting_DIMMs.html">
   <!-- Alternative links -->
   
     
@@ -64,17 +64,25 @@
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="ADLINK SEMA®" type="application/atom+xml">
   <!-- Open Graph -->
-  <meta name="description" content="List of sys Interface (only for Linux) Board Information WatchDog control GPIO Access Backlight Control I2C Control (support the standard i2c commands to access your devices) Smart FAN Control Storage">
+  <meta name="description" content="How to use Memory ChannelsInstalling Memory ChannelsThe following describes how to install different numbers of memory channels on your system (AADP &#x2F; AVA), which would require you to use different, s">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Developer&#39;s Guide">
-<meta property="og:url" content="https://adlinktech.github.io/sema/DeveloperGuide.html">
+<meta property="og:title" content="ADLINK SEMA®">
+<meta property="og:url" content="https://adlinktech.github.io/ava/troubleshooting_DIMMs.html">
 <meta property="og:site_name" content="ADLINK SEMA®">
-<meta property="og:description" content="List of sys Interface (only for Linux) Board Information WatchDog control GPIO Access Backlight Control I2C Control (support the standard i2c commands to access your devices) Smart FAN Control Storage">
+<meta property="og:description" content="How to use Memory ChannelsInstalling Memory ChannelsThe following describes how to install different numbers of memory channels on your system (AADP &#x2F; AVA), which would require you to use different, s">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-01T19:50:18.840Z">
-<meta property="article:modified_time" content="2022-07-01T17:10:58.588Z">
+<meta property="og:image" content="https://adlinktech.github.io/ava/troubleshooting_DIMMs.assets/image-20220608132657383.png">
+<meta property="og:image" content="https://adlinktech.github.io/ava/troubleshooting_DIMMs.assets/image-20220608132724028.png">
+<meta property="og:image" content="https://adlinktech.github.io/ava/troubleshooting_DIMMs.assets/image-20220608132924482.png">
+<meta property="og:image" content="https://adlinktech.github.io/ava/troubleshooting_DIMMs.assets/image-20220608133551813.png">
+<meta property="og:image" content="https://adlinktech.github.io/ava/troubleshooting_DIMMs.assets/image-20220608133635790.png">
+<meta property="og:image" content="https://adlinktech.github.io/ava/troubleshooting_DIMMs.assets/image-20220608133653521.png">
+<meta property="og:image" content="https://adlinktech.github.io/ava/troubleshooting_DIMMs.assets/image-20220608133927360.png">
+<meta property="article:published_time" content="2022-07-08T05:29:54.050Z">
+<meta property="article:modified_time" content="2022-07-08T05:29:54.050Z">
 <meta property="article:author" content="ADLINK Technology Inc. All Rights Reserved.">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://adlinktech.github.io/ava/troubleshooting_DIMMs.assets/image-20220608132657383.png">
   <!-- Google Analytics -->
   
 <script>
@@ -125,32 +133,28 @@
           <div class="article">
             <div class="inner">
               <header class="article-header">
-                <h1 class="article-title" itemprop="name">Developer's Guide</h1>
+                <h1 class="article-title" itemprop="name"></h1>
               </header>
               <div class="article-content bullets" itemprop="articleBody">
-                <h3 id="List-of-sys-Interface-only-for-Linux" class="article-heading"><a href="#List-of-sys-Interface-only-for-Linux" class="headerlink" title="List of sys Interface (only for Linux)"></a>List of sys Interface (only for Linux)<a onclick="parent.postMessage( {msg: '?page=DeveloperGuide.html#List-of-sys-Interface-only-for-Linux'}, '*');" class="article-anchor" href="#List-of-sys-Interface-only-for-Linux" aria-hidden="true"></a></h3><ul>
-<li><a href="BoardInfo.html#List-of-sys-interface">Board Information</a></li>
-<li><a href="WatchDog.html#List-of-sys-interface">WatchDog control</a></li>
-<li><a href="GPIO.html#List-of-sys-interface">GPIO Access</a></li>
-<li><a href="Backlight.html#List-of-sys-interface">Backlight Control</a></li>
-<li><a href="i2c.html#how-to-use-in-linux">I2C Control</a> (support the standard i2c commands to access your devices)</li>
-<li><a href="SmartFan.html#List-of-sys-interface">Smart FAN Control</a></li>
-<li><a href="Storage.html#List-of-sys-interface">Storage Access</a></li>
-</ul>
-<p><br></p>
-<h3 id="List-of-SEMA-EPAI-Windows-amp-Linux" class="article-heading"><a href="#List-of-SEMA-EPAI-Windows-amp-Linux" class="headerlink" title="List of SEMA EPAI (Windows &amp; Linux)"></a>List of SEMA EPAI (Windows &amp; Linux)<a onclick="parent.postMessage( {msg: '?page=DeveloperGuide.html#List-of-SEMA-EPAI-Windows-amp-Linux'}, '*');" class="article-anchor" href="#List-of-SEMA-EPAI-Windows-amp-Linux" aria-hidden="true"></a></h3><ul>
-<li><a href="BoardInfo.html#List-of-sema-eapi-support-windows-amp-linux">Board Information</a></li>
-<li><a href="WatchDog.html#List-of-sema-eapi-support-windows-amp-linux">WatchDog control</a></li>
-<li><a href="GPIO.html#List-of-sema-eapi-only-for-windows">GPIO Access</a></li>
-<li><a href="Backlight.html#List-of-sema-eapi-support-windows-amp-linux">Backlight Control</a></li>
-<li><a href="i2c.html#List-of-sema-eapi-only-for-windows">I2C Control</a> ( Only support Windows 10 64bit)</li>
-<li><a href="SmartFan.html#List-of-sema-eapi-support-windows-amp-linux">Smart FAN Control</a></li>
-<li><a href="Storage.html#List-of-sema-eapi-support-windows-amp-linux">Storage Access</a></li>
-</ul>
+                <h1 id="How-to-use-Memory-Channels" class="article-heading"><a href="#How-to-use-Memory-Channels" class="headerlink" title="How to use Memory Channels"></a>How to use Memory Channels<a onclick="parent.postMessage( {msg: '?page=troubleshooting_DIMMs.html#How-to-use-Memory-Channels'}, '*');" class="article-anchor" href="#How-to-use-Memory-Channels" aria-hidden="true"></a></h1><h2 id="Installing-Memory-Channels" class="article-heading"><a href="#Installing-Memory-Channels" class="headerlink" title="Installing Memory Channels"></a>Installing Memory Channels<a onclick="parent.postMessage( {msg: '?page=troubleshooting_DIMMs.html#Installing-Memory-Channels'}, '*');" class="article-anchor" href="#Installing-Memory-Channels" aria-hidden="true"></a></h2><blockquote class="note info"><p>The following describes how to install different numbers of memory channels on your system (AADP / AVA), which would require you to use different, specified DIMM slots depending on the total number of memory channels used. </p>
+</blockquote>
+<h2 id="How-to-install-Memory-Channels" class="article-heading"><a href="#How-to-install-Memory-Channels" class="headerlink" title="How to install Memory Channels?"></a>How to install Memory Channels?<a onclick="parent.postMessage( {msg: '?page=troubleshooting_DIMMs.html#How-to-install-Memory-Channels'}, '*');" class="article-anchor" href="#How-to-install-Memory-Channels" aria-hidden="true"></a></h2><p>   <strong>1</strong>. Fully turn off your system (AADP / AVA), with all LEDs off.</p>
+<p>   <strong>2</strong>. Remove its glass casing by unscrewing the 2 screws at the right side of its rear panel.</p>
+<p><img src="troubleshooting_DIMMs.assets/image-20220608132657383.png" alt="image-20220608132657383"></p>
+<p>   <strong>3</strong>. Locate its 6 DIMM slots as indicated below.</p>
+<p><img src="troubleshooting_DIMMs.assets/image-20220608132724028.png" alt="image-20220608132724028"></p>
+<p>   <strong>4</strong>. According to the total number of memory channels you want to use (1, 2, 4, or 6), install them only to the DIMM slots as specified below, marked by *. Remove all unused memory channels, if any.</p>
+<p><img src="troubleshooting_DIMMs.assets/image-20220608132924482.png" alt="image-20220608132924482"></p>
+<p>   <strong>5</strong>. Once the correct DIMM slots have been filled, according to the total number of memory channels used, start up your system (AADP / AVA) and you shall be able to review their status through the BIOS, by doing the following.</p>
+<details class="folding-tag" blue><summary> Expand </summary>
+              <div class="content">
+              <p>  — From your system’s BIOS, go to <strong>Device Manager &gt; Platform Manager &gt; Memory Configuration</strong>, as illustrated below.</p><p><img src="troubleshooting_DIMMs.assets/image-20220608133551813.png" alt="image-20220608133551813"></p><p><img src="troubleshooting_DIMMs.assets/image-20220608133635790.png" alt="image-20220608133635790"></p><p><img src="troubleshooting_DIMMs.assets/image-20220608133653521.png" alt="image-20220608133653521"></p><p>  — In <strong>Memory Configuration</strong>, you shall be able to see the status of the <strong>Memory Channels</strong>, as exemplified below.</p><p><img src="troubleshooting_DIMMs.assets/image-20220608133927360.png" alt="image-20220608133927360">      </p>
+              </div>
+            </details>
 
               </div>
               <footer class="article-footer">
-                <a href="HowToUse.html" class="article-footer-prev" title="How to use SEMA Utility"><i class="fa fa-chevron-left"></i><span>prev</span></a><a href="BoardInfo.html" class="article-footer-next" title="-Board Infomration"><span>next</span><i class="fa fa-chevron-right"></i></a>
+                
               </footer>
             </div>
           </div>
@@ -158,7 +162,7 @@
       </article>
       <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title"><details open><summary>Overview</summary><a href="index.html" class="sidebar-link first">Introduction</a></details open></strong><strong class="sidebar-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="sidebar-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="sidebar-link">How to Install on Windows</a><a href="HowToUse.html" class="sidebar-link">How to use SEMA Utility</a></details open></strong><strong class="sidebar-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="sidebar-link current first">Feature List</a><a href="BoardInfo.html" class="sidebar-link">-Board Infomration</a><a href="WatchDog.html" class="sidebar-link">-Watchdog Access</a><a href="GPIO.html" class="sidebar-link">-GPIO Access</a><a href="Backlight.html" class="sidebar-link">-Backlight Control</a><a href="i2c.html" class="sidebar-link">-I2C Control</a><a href="SmartFan.html" class="sidebar-link">-Smart Fan Control</a><a href="Storage.html" class="sidebar-link">-Storage Access</a></details open></strong>
+    
   </div>
 </aside>
     </div>
@@ -212,13 +216,13 @@
   <nav id="mobile-nav">
   <div id="mobile-nav-inner">
     <ul id="mobile-nav-list">
-      <a href="/sema/" class="mobile-nav-link current header">menu.SEMA</a>
+      <a href="/sema/" class="mobile-nav-link  header">menu.SEMA</a>
      <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/adlink/sema-linux" class="main-nav-link"><i class="fa fa-github-alt"></i> Linux</a>
 	  <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/adlink/sema-windows" class="main-nav-link"><i class="fa fa-github-alt"></i> Windows</a>
  
     </ul>
     
-      <strong class="mobile-nav-title"><details open><summary>Overview</summary><a href="index.html" class="mobile-nav-link first">Introduction</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="mobile-nav-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="mobile-nav-link">How to Install on Windows</a><a href="HowToUse.html" class="mobile-nav-link">How to use SEMA Utility</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="mobile-nav-link current first">Feature List</a><a href="BoardInfo.html" class="mobile-nav-link">-Board Infomration</a><a href="WatchDog.html" class="mobile-nav-link">-Watchdog Access</a><a href="GPIO.html" class="mobile-nav-link">-GPIO Access</a><a href="Backlight.html" class="mobile-nav-link">-Backlight Control</a><a href="i2c.html" class="mobile-nav-link">-I2C Control</a><a href="SmartFan.html" class="mobile-nav-link">-Smart Fan Control</a><a href="Storage.html" class="mobile-nav-link">-Storage Access</a></details open></strong>
+      
     
   </div>
   
