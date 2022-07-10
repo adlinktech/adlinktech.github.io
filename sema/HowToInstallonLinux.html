@@ -41,7 +41,6 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
-
  <!-- Hotjar Tracking Code for https://ipi.wiki -->
   <script>
       (function(h,o,t,j,a,r){
@@ -73,8 +72,8 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://adlinktech.github.io/sema/HowtoInstallonLinux.assets/load_i2c_i801-16565834413265.png">
 <meta property="og:image" content="https://adlinktech.github.io/sema/HowtoInstallonLinux.assets/imag2-16565820733673.png">
-<meta property="article:published_time" content="2022-07-07T12:09:55.488Z">
-<meta property="article:modified_time" content="2022-07-07T12:09:55.488Z">
+<meta property="article:published_time" content="2022-07-10T10:31:13.750Z">
+<meta property="article:modified_time" content="2022-07-10T10:31:13.750Z">
 <meta property="article:author" content="ADLINK Technology Inc. All Rights Reserved.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://adlinktech.github.io/sema/HowtoInstallonLinux.assets/load_i2c_i801-16565834413265.png">
@@ -102,7 +101,7 @@
     <nav id="main-nav">    
 	</nav>
 	<div id = "tab_active">
-    <script>window.onload = function(){var url = window.location.search;const urlParams = new URLSearchParams(url);var type = urlParams.get("type");if (type == 'bmc'){ $('ul.nav-tabs li').removeClass('active'); $('ul.nav-tabs li:nth-child(2)').addClass("active").show();}}</script>
+    <script>window.onload = function(){var url = window.location.search;const urlParams = new URLSearchParams(url);var type = urlParams.get("type");if (type == 'bmc'){ $('ul.nav-tabs li').removeClass('active'); $('ul.nav-tabs li:nth-child(2)').addClass("active").show();document.getElementById('ec').classList.remove('active');document.getElementById('bmc').classList.add('active');}}</script>
     </div>
 	
     <div id="lang-select-wrap">
@@ -137,7 +136,7 @@
   <li class><a href="#bmc" data-toggle="tab">SEMA® - TivaBMC controller</a></li>
 </ul>
 <div id="my-tab-content" class="tab-content">
-<div class="tab-pane " id="ec">
+<div class="tab-pane active" id="ec">
 
 
 
@@ -190,7 +189,7 @@
 
 
 
- <div class="tab-pane active" id="bmc">
+ <div class="tab-pane" id="bmc">
 <h3 class="article-heading">Supported Hardware<a onclick="parent.postMessage( {msg: '?page=HowToInstallonLinux.html#undefined'}, '*');" class="article-anchor" href="#undefined" aria-hidden="true"></a></h3>
 <ul>
   <li>Express-CF/CFE, Express-KL/KLE, Express-SL/SLE, Express-DN7, Express-BD7</li>

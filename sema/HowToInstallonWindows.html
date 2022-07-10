@@ -41,7 +41,6 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
-
  <!-- Hotjar Tracking Code for https://ipi.wiki -->
   <script>
       (function(h,o,t,j,a,r){
@@ -103,7 +102,7 @@
     <nav id="main-nav">    
 	</nav>
 	<div id = "tab_active">
-    <script>window.onload = function(){var url = window.location.search;const urlParams = new URLSearchParams(url);var type = urlParams.get("type");if (type == 'bmc'){ $('ul.nav-tabs li').removeClass('active'); $('ul.nav-tabs li:nth-child(2)').addClass("active").show();}}</script>
+    <script>window.onload = function(){var url = window.location.search;const urlParams = new URLSearchParams(url);var type = urlParams.get("type");if (type == 'bmc'){ $('ul.nav-tabs li').removeClass('active'); $('ul.nav-tabs li:nth-child(2)').addClass("active").show();document.getElementById('ec').classList.remove('active');document.getElementById('bmc').classList.add('active');}}</script>
     </div>
 	
     <div id="lang-select-wrap">
