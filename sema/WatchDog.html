@@ -71,8 +71,8 @@
 <meta property="og:description" content="Support two watchdog controls of the board. If the watchdog begins and reaches the pre-set time, it will access the CPU’s RESET signal to reset the system.   Run-Time Watchdog: used in the OS to monit">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://adlinktech.github.io/sema/WatchDog.assets/watchdog_timing_chart.png">
-<meta property="article:published_time" content="2022-07-01T19:50:22.330Z">
-<meta property="article:modified_time" content="2022-07-01T17:13:17.503Z">
+<meta property="article:published_time" content="2022-07-18T14:23:08.363Z">
+<meta property="article:modified_time" content="2022-07-18T14:23:08.363Z">
 <meta property="article:author" content="ADLINK Technology Inc. All Rights Reserved.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://adlinktech.github.io/sema/WatchDog.assets/watchdog_timing_chart.png">
@@ -142,7 +142,7 @@
 </li>
 </ul>
 <p><br></p>
-<h4 id="List-of-Sys-Interface" class="article-heading"><a href="#List-of-Sys-Interface" class="headerlink" title="List of Sys Interface"></a>List of Sys Interface<a onclick="parent.postMessage( {msg: '?page=WatchDog.html#List-of-Sys-Interface'}, '*');" class="article-anchor" href="#List-of-Sys-Interface" aria-hidden="true"></a></h4><h5 id="For-Run-time-Watchdog" class="article-heading"><a href="#For-Run-time-Watchdog" class="headerlink" title="For Run-time Watchdog:"></a>For Run-time Watchdog:<a onclick="parent.postMessage( {msg: '?page=WatchDog.html#For-Run-time-Watchdog'}, '*');" class="article-anchor" href="#For-Run-time-Watchdog" aria-hidden="true"></a></h5><ul>
+<h2 id="sysfs-Interfaces" class="article-heading"><a href="#sysfs-Interfaces" class="headerlink" title="sysfs Interfaces"></a>sysfs Interfaces<a onclick="parent.postMessage( {msg: '?page=WatchDog.html#sysfs-Interfaces'}, '*');" class="article-anchor" href="#sysfs-Interfaces" aria-hidden="true"></a></h2><h5 id="For-Run-time-Watchdog" class="article-heading"><a href="#For-Run-time-Watchdog" class="headerlink" title="For Run-time Watchdog:"></a>For Run-time Watchdog:<a onclick="parent.postMessage( {msg: '?page=WatchDog.html#For-Run-time-Watchdog'}, '*');" class="article-anchor" href="#For-Run-time-Watchdog" aria-hidden="true"></a></h5><ul>
 <li><p>To start/update the run-time watchdog with timeout out value, use the following format:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wdogtest –timeout=&lt;time in seconds&gt;</span><br></pre></td></tr></table></figure>
 <p>The example below sets the run-time watchdog timeout value as 20 seconds.</p>
@@ -157,14 +157,14 @@
 <li><p>To get the information about the run-time watchdog state</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /sys/class/watchdog/watchdog0/state</span><br></pre></td></tr></table></figure></li>
 <li>To get the current run-time watchdog timeout value ( timeout value is not the elapsed time. it is your initial timeout)   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /sys/class/watchdog/watchdog0/timeout</span><br></pre></td></tr></table></figure></li>
-<li>To get minimum/maximum run-time watchdog timeout value<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/sys/bus/platform/devices/adl-bmc-wdt/Capabilities/wdt_min_timeout</span><br><span class="line"></span><br><span class="line">/sys/bus/platform/devices/adl-bmc-wdt/Capabilities/wdt_max_timeout</span><br></pre></td></tr></table></figure>
+<li>To get minimum/maximum run-time watchdog timeout value<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/sys/bus/platform/devices/adl-bmc-wdt/Capabilities/wdt_min_timeout</span><br><span class="line">/sys/bus/platform/devices/adl-bmc-wdt/Capabilities/wdt_max_timeout</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h5 id="For-Power-up-Watchdog" class="article-heading"><a href="#For-Power-up-Watchdog" class="headerlink" title="For Power-up Watchdog"></a>For Power-up Watchdog<a onclick="parent.postMessage( {msg: '?page=WatchDog.html#For-Power-up-Watchdog'}, '*');" class="article-anchor" href="#For-Power-up-Watchdog" aria-hidden="true"></a></h5><ul>
 <li><p>To start / update the power-up watchdog timer value:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &lt;time in seconds&gt; /sys/bus/platform/devices/adl-bmc-wdt/Capabilities/PwrUpWDog</span><br></pre></td></tr></table></figure>
-<p>The example below sets the power-up watchdog timer timeout value as 1000 seconds.   </p>
-<p>echo 1000 &gt; /sys/bus/platform/devices/adl-bmc-wdt/Capabilities/PwrUpWDog</p>
+<p>The example below sets the power-up watchdog timer timeout value as 1000 seconds:</p>
+<p><code>echo 1000 &gt; /sys/bus/platform/devices/adl-bmc-wdt/Capabilities/PwrUpWDog</code></p>
 </li>
 <li><p>To get the power-up watchdog timer value</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /sys/bus/platform/devices/adl-bmc-wdt/Capabilities/PwrUpWDog</span><br></pre></td></tr></table></figure>
@@ -174,56 +174,54 @@
 </li>
 </ul>
 <p><br></p>
-<h4 id="List-of-SEMA-EAPI-Support-Windows-amp-Linux" class="article-heading"><a href="#List-of-SEMA-EAPI-Support-Windows-amp-Linux" class="headerlink" title="List of SEMA EAPI (Support Windows &amp; Linux)"></a>List of SEMA EAPI (Support Windows &amp; Linux)<a onclick="parent.postMessage( {msg: '?page=WatchDog.html#List-of-SEMA-EAPI-Support-Windows-amp-Linux'}, '*');" class="article-anchor" href="#List-of-SEMA-EAPI-Support-Windows-amp-Linux" aria-hidden="true"></a></h4><p>Get the capabilities of <strong>run-time watchdog</strong></p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiWDogGetCap(</span><br><span class="line">    uint32_t *pMaxDelay,</span><br><span class="line">    uint32_t *pMaxEventTimeout,</span><br><span class="line">    uint32_t* Resetvalue</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="SEMA-EAPI-Both-Windows-amp-Linux-supported" class="article-heading"><a href="#SEMA-EAPI-Both-Windows-amp-Linux-supported" class="headerlink" title="SEMA EAPI (Both Windows &amp; Linux supported)"></a>SEMA EAPI (Both Windows &amp; Linux supported)<a onclick="parent.postMessage( {msg: '?page=WatchDog.html#SEMA-EAPI-Both-Windows-amp-Linux-supported'}, '*');" class="article-anchor" href="#SEMA-EAPI-Both-Windows-amp-Linux-supported" aria-hidden="true"></a></h2><p>Get the capabilities of <strong>run-time watchdog</strong></p>
+  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiWDogGetCap</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">    uint32_t *pMaxDelay,</span></span></span><br><span class="line"><span class="params"><span class="function">    uint32_t *pMaxEventTimeout,</span></span></span><br><span class="line"><span class="params"><span class="function">    uint32_t* Resetvalue</span></span></span><br><span class="line"><span class="params"><span class="function"></span>)</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>Parameters:</p>
 <ul>
-<li><p>uint32_t *pMaxDelay:</p>
+<li><p><strong>uint32_t *pMaxDelay:</strong></p>
 <p>Pointer to a buffer that receives maximum supported initial delay time of the watchdog timer in milliseconds.</p>
-<ul>
-<li><p>uint32_t *pMaxEventTimeout:</p>
-<pre><code> Pointer to a buffer that receives maximum supported event timeout of the watchdog timer in milliseconds.
-</code></pre></li>
-<li><p>uint32_t* Resetvalue:</p>
-<pre><code> Pointer to a buffer that receives maximum supported event timeout of the watchdog timer in milliseconds.
-</code></pre></li>
-</ul>
+</li>
+<li><p><strong>uint32_t *pMaxEventTimeout:</strong></p>
+<p>Pointer to a buffer that receives maximum supported event timeout of the watchdog timer in milliseconds.</p>
+</li>
+<li><p><strong>uint32_t* Resetvalue:</strong></p>
+<p>Pointer to a buffer that receives maximum supported event timeout of the watchdog timer in milliseconds.</p>
 </li>
 </ul>
 </li>
 </ul>
 <p>  <br></p>
 <p>Start to <strong>run-time watchdog</strong> timer. To reset timer value, timer must be stopped by using <strong>EApiWDogStop()</strong> and then <strong>EApiWDogStart()</strong> be called again with new values.  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiWDogStart(</span><br><span class="line">    uint32_t delay,</span><br><span class="line">    uint32_t EventTimeout,</span><br><span class="line">    uint32_t ResetTime</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiWDogStart</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">    uint32_t delay,</span></span></span><br><span class="line"><span class="params"><span class="function">    uint32_t EventTimeout,</span></span></span><br><span class="line"><span class="params"><span class="function">    uint32_t ResetTime</span></span></span><br><span class="line"><span class="params"><span class="function"></span>)</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>Parameters:</p>
 <ul>
-<li><p>uint32_t delay:</p>
-<pre><code>    Initial delay for the watchdog timer in milliseconds. (currently not supported by SEMA EAPI, set  it as 0)
-</code></pre></li>
-<li><p>uint32_t EventTimeout:</p>
-<pre><code>    Initial delay for the watchdog timer in milliseconds. (currently not supported by SEMA EAPI, set it as 0)
-</code></pre></li>
-<li><p>uint32_t ResetTime:</p>
-<pre><code>    Watchdog timeout interval in milliseconds to trigger a reset.
-</code></pre></li>
+<li><p><strong>uint32_t delay:</strong></p>
+<p>Initial delay for the watchdog timer in milliseconds. (currently not supported by SEMA EAPI, set  it as 0)</p>
+</li>
+<li><p><strong>uint32_t EventTimeout:</strong></p>
+<p>Initial delay for the watchdog timer in milliseconds. (currently not supported by SEMA EAPI, set it as 0)</p>
+</li>
+<li><p><strong>uint32_t ResetTime:</strong></p>
+<p>Watchdog timeout interval in milliseconds to trigger a reset.</p>
+</li>
 </ul>
 </li>
 </ul>
 <p><br></p>
 <p>Reset the <strong>run-time watchdog</strong> timer</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiWDogTrigger()</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiWDogTrigger</span>()</span></span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p>Stop the operation of the <strong>run-time watchdog</strong> timer</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiWDogStop()</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiWDogStop</span>()</span></span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p>Enable the operation of the <strong>power-up watchdog timer</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiPwrUpWDogStart( uint32_t ResetTime)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiPwrUpWDogStart</span>(<span class="params"> uint32_t ResetTime</span>)</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>Parameters:</p>
 <ul>
-<li><p>uint32_t ResetTime:</p>
+<li><p><strong>uint32_t ResetTime:</strong></p>
 <p>Watchdog timeout interval in milliseconds to trigger a reset.</p>
 </li>
 </ul>
@@ -231,10 +229,7 @@
 </ul>
 <p><br></p>
 <p>Disable the operation of the <strong>power-up watchdog</strong> timer (disable)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiPwrUpWDogStop()</span><br></pre></td></tr></table></figure>
-<ul>
-<li></li>
-</ul>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiPwrUpWDogStop</span>()</span></span><br></pre></td></tr></table></figure>
 
               </div>
               <footer class="article-footer">
@@ -246,7 +241,7 @@
       </article>
       <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title"><details open><summary>Overview</summary><a href="index.html" class="sidebar-link first">Introduction</a></details open></strong><strong class="sidebar-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="sidebar-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="sidebar-link">How to Install on Windows</a><a href="HowToUse.html" class="sidebar-link">How to use SEMA Utility</a></details open></strong><strong class="sidebar-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="sidebar-link first">Feature List</a><a href="BoardInfo.html" class="sidebar-link">-Board Infomration</a><a href="WatchDog.html" class="sidebar-link current">-Watchdog Access</a><a href="GPIO.html" class="sidebar-link">-GPIO Access</a><a href="Backlight.html" class="sidebar-link">-Backlight Control</a><a href="i2c.html" class="sidebar-link">-I2C Control</a><a href="SmartFan.html" class="sidebar-link">-Smart Fan Control</a><a href="Storage.html" class="sidebar-link">-Storage Access</a></details open></strong>
+    <strong class="sidebar-title"><details open><summary>Overview</summary><a href="index.html" class="sidebar-link first">Introduction</a></details open></strong><strong class="sidebar-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="sidebar-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="sidebar-link">How to Install on Windows</a><a href="HowToUse.html" class="sidebar-link">How to use SEMA Utility</a></details open></strong><strong class="sidebar-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="sidebar-link first">Feature Set</a><a href="BoardInfo.html" class="sidebar-link">-Board Infomration</a><a href="WatchDog.html" class="sidebar-link current">-Watchdog Access</a><a href="GPIO.html" class="sidebar-link">-GPIO Access</a><a href="Backlight.html" class="sidebar-link">-Backlight Control</a><a href="i2c.html" class="sidebar-link">-I2C Control</a><a href="SmartFan.html" class="sidebar-link">-Smart Fan Control</a><a href="Storage.html" class="sidebar-link">-Storage Access</a></details open></strong>
   </div>
 </aside>
     </div>
@@ -306,7 +301,7 @@
  
     </ul>
     
-      <strong class="mobile-nav-title"><details open><summary>Overview</summary><a href="index.html" class="mobile-nav-link first">Introduction</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="mobile-nav-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="mobile-nav-link">How to Install on Windows</a><a href="HowToUse.html" class="mobile-nav-link">How to use SEMA Utility</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="mobile-nav-link first">Feature List</a><a href="BoardInfo.html" class="mobile-nav-link">-Board Infomration</a><a href="WatchDog.html" class="mobile-nav-link current">-Watchdog Access</a><a href="GPIO.html" class="mobile-nav-link">-GPIO Access</a><a href="Backlight.html" class="mobile-nav-link">-Backlight Control</a><a href="i2c.html" class="mobile-nav-link">-I2C Control</a><a href="SmartFan.html" class="mobile-nav-link">-Smart Fan Control</a><a href="Storage.html" class="mobile-nav-link">-Storage Access</a></details open></strong>
+      <strong class="mobile-nav-title"><details open><summary>Overview</summary><a href="index.html" class="mobile-nav-link first">Introduction</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="mobile-nav-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="mobile-nav-link">How to Install on Windows</a><a href="HowToUse.html" class="mobile-nav-link">How to use SEMA Utility</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="mobile-nav-link first">Feature Set</a><a href="BoardInfo.html" class="mobile-nav-link">-Board Infomration</a><a href="WatchDog.html" class="mobile-nav-link current">-Watchdog Access</a><a href="GPIO.html" class="mobile-nav-link">-GPIO Access</a><a href="Backlight.html" class="mobile-nav-link">-Backlight Control</a><a href="i2c.html" class="mobile-nav-link">-I2C Control</a><a href="SmartFan.html" class="mobile-nav-link">-Smart Fan Control</a><a href="Storage.html" class="mobile-nav-link">-Storage Access</a></details open></strong>
     
   </div>
   

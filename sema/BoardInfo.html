@@ -70,8 +70,8 @@
 <meta property="og:site_name" content="ADLINK SEMA®">
 <meta property="og:description" content="Provides an interface to control or get the board’s information, including:  Static board information (ex: module name, BIOS version, or manufacturer name) Dynamical board information (ex: voltage, cu">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-01T19:50:18.832Z">
-<meta property="article:modified_time" content="2022-07-01T17:10:25.523Z">
+<meta property="article:published_time" content="2022-07-18T14:17:04.795Z">
+<meta property="article:modified_time" content="2022-07-18T14:17:04.795Z">
 <meta property="article:author" content="ADLINK Technology Inc. All Rights Reserved.">
 <meta name="twitter:card" content="summary">
   <!-- Google Analytics -->
@@ -133,7 +133,8 @@
 <li>Dynamical board information (ex: voltage, current, boot count or temperature)</li>
 <li>Failure forensics (ex: restart event)</li>
 </ul>
-<h4 id="List-of-Sys-Interface" class="article-heading"><a href="#List-of-Sys-Interface" class="headerlink" title="List of Sys Interface"></a>List of Sys Interface<a onclick="parent.postMessage( {msg: '?page=BoardInfo.html#List-of-Sys-Interface'}, '*');" class="article-anchor" href="#List-of-Sys-Interface" aria-hidden="true"></a></h4><ul>
+<p><br></p>
+<h3 id="sysfs-Interfaces" class="article-heading"><a href="#sysfs-Interfaces" class="headerlink" title="sysfs Interfaces"></a>sysfs Interfaces<a onclick="parent.postMessage( {msg: '?page=BoardInfo.html#sysfs-Interfaces'}, '*');" class="article-anchor" href="#sysfs-Interfaces" aria-hidden="true"></a></h3><ul>
 <li><p>To get the board manufacturer name:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /sys/bus/platform/devices/adl-bmc-boardinfo/information/manufacturer_name</span><br></pre></td></tr></table></figure>
 </li>
@@ -257,24 +258,229 @@
 </li>
 </ul>
 <p><br></p>
-<h4 id="List-of-SEMA-EAPI-Support-Windows-amp-Linux" class="article-heading"><a href="#List-of-SEMA-EAPI-Support-Windows-amp-Linux" class="headerlink" title="List of SEMA EAPI (Support Windows &amp; Linux)"></a>List of SEMA EAPI (Support Windows &amp; Linux)<a onclick="parent.postMessage( {msg: '?page=BoardInfo.html#List-of-SEMA-EAPI-Support-Windows-amp-Linux'}, '*');" class="article-anchor" href="#List-of-SEMA-EAPI-Support-Windows-amp-Linux" aria-hidden="true"></a></h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiBoardGetValue(uint32_t Id, uint8_t *pData, uint32_t nSize)</span><br></pre></td></tr></table></figure>
+<h3 id="SEMA-EAPI-Both-Windows-amp-Linux-supported" class="article-heading"><a href="#SEMA-EAPI-Both-Windows-amp-Linux-supported" class="headerlink" title="SEMA EAPI (Both Windows &amp; Linux supported)"></a>SEMA EAPI (Both Windows &amp; Linux supported)<a onclick="parent.postMessage( {msg: '?page=BoardInfo.html#SEMA-EAPI-Both-Windows-amp-Linux-supported'}, '*');" class="article-anchor" href="#SEMA-EAPI-Both-Windows-amp-Linux-supported" aria-hidden="true"></a></h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">uint32_t</span> <span class="title">EApiBoardGetValue</span><span class="params">(<span class="type">uint32_t</span> Id, <span class="type">uint8_t</span> *pData, <span class="type">uint32_t</span> nSize)</span></span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>   Information about the hardware platform.</p>
 <ul>
-<li><p>Parameters:</p>
-<ul>
-<li><p>uint32_t Id:<br>Select ID for the first parameter:</p>
-<p>| ID                                         | Description                                      | Units                       |<br>| :————————————————————- | :———————————————————————- | —————————————- |<br>| EAPI_ID_GET_EAPI_SPEC_VERSION              | EAPI Specification Version used to implement API |                             |<br>| EAPI_ID_BOARD_BOOT_COUNTER_VAL             | Boot Counter                                     |                             |<br>| EAPI_ID_BOARD_RUNNING_TIME_METER_VAL       | Running Time Meter                               | minutes                     |<br>| EAPI_ID_BOARD_LIB_VERSION_VAL              | Vendor Specific Library                          |                             |<br>| EAPI_ID_HWMON_CPU_TEMP                     | CPU Temperature                                  |                             |<br>| EAPI_ID_HWMON_SYSTEM_TEMP                  | System Temperature                               |                             |<br>| EAPI_ID_HWMON_VOLTAGE_VCORE                | CPU Core Voltage                                 | millivolts                  |<br>| EAPI_ID_HWMON_VOLTAGE_2V5                  | 2.5V Voltage                                     | millivolts                  |<br>| EAPI_ID_HWMON_VOLTAGE_3V3                  | 3.3V Voltage                                     | millivolts                  |<br>| EAPI_ID_HWMON_VOLTAGE_VBAT                 | Battery Voltage                                  | millivolts                  |<br>| EAPI_ID_HWMON_VOLTAGE_5V                   | 5V Voltage                                       | millivolts                  |<br>| EAPI_ID_HWMON_VOLTAGE_5VSB                 | 5V Standby Voltage                               | millivolts                  |<br>| EAPI_ID_HWMON_VOLTAGE_12V                  | 12V Voltage                                      | millivolts                  |<br>| EAPI_ID_HWMON_FAN_CPU                      | CPU Fan speed                                    | RPM                         |<br>| EAPI_ID_HWMON_FAN_SYSTEM                   | System Fan speed                                 | RPM                         |<br>| SEMA_EAPI_ID_BOARD_POWER_UP_TIME           | Get the operating time after power up            | seconds                     |<br>| SEMA_EAPI_ID_BOARD_RESTART_EVENT           | Get the restart event                            | See <strong>Note 1</strong>              |<br>| SEMA_EAPI_ID_BOARD_CAPABILITIES            | Get the capabilities of this board or system     | See <strong>Note 2</strong>              |<br>| SEMA_EAPI_ID_BOARD_CAPABILITIES_EX         | Get extended BMC capabilities                    | See <strong>Note 3</strong>              |<br>| SEMA_EAPI_ID_BOARD_SYSTEM_MIN_TEMP         | Board Min Temperature                            | 0.1 Kelvins                 |<br>| SEMA_EAPI_ID_BOARD_SYSTEM_MAX_TEMP         | Board Max Temperature                            | 0.1 Kelvins                 |<br>| SEMA_EAPI_ID_BOARD_SYSTEM_STARTUP_TEMP     | Board Startup Temperature                        | 0.1 Kelvins                 |<br>| SEMA_EAPI_ID_BOARD_CPU_MIN_TEMP            | CPU Min Temperature                              | 0.1 Kelvins                 |<br>| SEMA_EAPI_ID_BOARD_CPU_MAX_TEMP            | CPU Max Temperature                              | 0.1 Kelvins                 |<br>| SEMA_EAPI_ID_BOARD_CPU_STARTUP_TEMP        | CPU Startup Temperature                          | 0.1 Kelvins                 |<br>| SEMA_EAPI_ID_BOARD_MAIN_CURRENT            | Get main power current                           | unit: mA, resolution=1/10mA |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_GFX_VCORE       | GFX voltage                                      | millivolts                  |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_1V05            | 1.05 V voltage                                   | millivolts                  |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_1V5             | 1.5 V voltage                                    | millivolts                  |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_VIN             | Vin Voltage                                      | millivolts                  |<br>| SEMA_EAPI_ID_HWMON_FAN_SYSTEM_2            | 2nd System Fan                                   | RPM                         |<br>| SEMA_EAPI_ID_HWMON_FAN_SYSTEM_3            | 3rd System Fan                                   | RPM                         |<br>| SEMA_EAPI_ID_BOARD_2ND_SYSTEM_TEMP         | 2nd board Temperature                            | 0.1 Kelvins                 |<br>| SEMA_EAPI_ID_BOARD_2ND_SYSTEM_MIN_TEMP     | 2nd board Min Temperature                        | 0.1 Kelvins                 |<br>| SEMA_EAPI_ID_BOARD_2ND_SYSTEM_MAX_TEMP     | 2nd board Max Temperature                        | 0.1 Kelvins                 |<br>| SEMA_EAPI_ID_BOARD_2ND_SYSTEM_STARTUP_TEMP | 2nd board Startup Temperature                    | 0.1 Kelvins                 |<br>| SEMA_EAPI_ID_BOARD_POWER_CYCLE             | Power cycle counter                              |                             |<br>| SEMA_EAPI_ID_BOARD_BMC_FLAG                | status of the BMC                                | See <strong>Note 4</strong>              |<br>| SEMA_EAPI_ID_BOARD_BMC_STATUS              | status of the BMC                                |                             |<br>| SEMA_EAPI_ID_BOARD_IO_CURRENT              | IO current                                       |                             |</p>
-</li>
-<li><p>uint8_t *pData:</p>
-<p>Pointer to a buffer that receives the value’s data. This  parameter can be NULL if the data is not required.</p>
-</li>
-<li><p>uint32_t nSize:</p>
-<p>Pointer to a variable that specifies the size, in bytes, of the buffer pointed to by the pBuffer parameter. When the function returns, this variable contains the size of the data copied to pBuffer including the terminating null character.</p>
-</li>
+<li>Parameters:<ul>
+<li><strong>uint32_t Id</strong>: refer to the following table to see the description for each ID</li>
+<li><strong>uint8_t *pData</strong>: the pointer to a buffer that receives the value’s data. This  parameter can be NULL if the data is not required.</li>
+<li><strong>uint32_t nSize</strong>: the pointer to a variable that specifies the size, in bytes, of the buffer pointed to by the pBuffer parameter. When the function returns, this variable contains the size of the data copied to pBuffer including the terminating null character.</li>
 </ul>
 </li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ID</th>
+<th style="text-align:left">Description</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">EAPI_ID_GET_EAPI_SPEC_VERSION</td>
+<td style="text-align:left">EAPI Specification Version used to implement API</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_BOARD_BOOT_COUNTER_VAL</td>
+<td style="text-align:left">Boot Counter</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_BOARD_RUNNING_TIME_METER_VAL</td>
+<td style="text-align:left">Running Time Meter</td>
+<td>minutes</td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_BOARD_LIB_VERSION_VAL</td>
+<td style="text-align:left">Vendor Specific Library</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_CPU_TEMP</td>
+<td style="text-align:left">CPU Temperature</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_SYSTEM_TEMP</td>
+<td style="text-align:left">System Temperature</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_VOLTAGE_VCORE</td>
+<td style="text-align:left">CPU Core Voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_VOLTAGE_2V5</td>
+<td style="text-align:left">2.5V Voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_VOLTAGE_3V3</td>
+<td style="text-align:left">3.3V Voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_VOLTAGE_VBAT</td>
+<td style="text-align:left">Battery Voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_VOLTAGE_5V</td>
+<td style="text-align:left">5V Voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_VOLTAGE_5VSB</td>
+<td style="text-align:left">5V Standby Voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_VOLTAGE_12V</td>
+<td style="text-align:left">12V Voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_FAN_CPU</td>
+<td style="text-align:left">CPU Fan speed</td>
+<td>RPM</td>
+</tr>
+<tr>
+<td style="text-align:left">EAPI_ID_HWMON_FAN_SYSTEM</td>
+<td style="text-align:left">System Fan speed</td>
+<td>RPM</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_POWER_UP_TIME</td>
+<td style="text-align:left">Get the operating time after power up</td>
+<td>seconds</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_RESTART_EVENT</td>
+<td style="text-align:left">Get the restart event</td>
+<td>See <strong>Note 1</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_CAPABILITIES</td>
+<td style="text-align:left">Get the capabilities of this board or system</td>
+<td>See <strong>Note 2</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_CAPABILITIES_EX</td>
+<td style="text-align:left">Get extended BMC capabilities</td>
+<td>See <strong>Note 3</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_SYSTEM_MIN_TEMP</td>
+<td style="text-align:left">Board Min Temperature</td>
+<td>0.1 Kelvins</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_SYSTEM_MAX_TEMP</td>
+<td style="text-align:left">Board Max Temperature</td>
+<td>0.1 Kelvins</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_SYSTEM_STARTUP_TEMP</td>
+<td style="text-align:left">Board Startup Temperature</td>
+<td>0.1 Kelvins</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_CPU_MIN_TEMP</td>
+<td style="text-align:left">CPU Min Temperature</td>
+<td>0.1 Kelvins</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_CPU_MAX_TEMP</td>
+<td style="text-align:left">CPU Max Temperature</td>
+<td>0.1 Kelvins</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_CPU_STARTUP_TEMP</td>
+<td style="text-align:left">CPU Startup Temperature</td>
+<td>0.1 Kelvins</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_MAIN_CURRENT</td>
+<td style="text-align:left">Get main power current</td>
+<td>unit: mA, resolution=1/10mA</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_HWMON_VOLTAGE_GFX_VCORE</td>
+<td style="text-align:left">GFX voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_HWMON_VOLTAGE_1V05</td>
+<td style="text-align:left">1.05 V voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_HWMON_VOLTAGE_1V5</td>
+<td style="text-align:left">1.5 V voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_HWMON_VOLTAGE_VIN</td>
+<td style="text-align:left">Vin Voltage</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_HWMON_FAN_SYSTEM_2</td>
+<td style="text-align:left">2nd System Fan</td>
+<td>RPM</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_HWMON_FAN_SYSTEM_3</td>
+<td style="text-align:left">3rd System Fan</td>
+<td>RPM</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_2ND_SYSTEM_TEMP</td>
+<td style="text-align:left">2nd board Temperature</td>
+<td>0.1 Kelvins</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_2ND_SYSTEM_MIN_TEMP</td>
+<td style="text-align:left">2nd board Min Temperature</td>
+<td>0.1 Kelvins</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_2ND_SYSTEM_MAX_TEMP</td>
+<td style="text-align:left">2nd board Max Temperature</td>
+<td>0.1 Kelvins</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_2ND_SYSTEM_STARTUP_TEMP</td>
+<td style="text-align:left">2nd board Startup Temperature</td>
+<td>0.1 Kelvins</td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_POWER_CYCLE</td>
+<td style="text-align:left">Power cycle counter</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_BMC_FLAG</td>
+<td style="text-align:left">status of the BMC</td>
+<td>See <strong>Note 4</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_BMC_STATUS</td>
+<td style="text-align:left">status of the BMC</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">SEMA_EAPI_ID_BOARD_IO_CURRENT</td>
+<td style="text-align:left">IO current</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><strong>Note 1</strong>: The following table describes the definition of Restart Event:</p>
 <div class="table-container">
 <table>
@@ -350,9 +556,11 @@
 </table>
 </div>
 <p><strong>Note 2</strong>: The following table describes the definition of BMC Capability Bits. it shows that which functions can be supported on your platform:</p>
-<pre><code>-  When Bit value goes to **1**, it indicates **enabled**
-    -  When Bit value goes to **0**, it indicates **disabled**
-</code></pre><div class="table-container">
+<ul>
+<li>When Bit value goes to <strong>1</strong>, it indicates <strong>enabled</strong></li>
+<li>When Bit value goes to <strong>0</strong>, it indicates <strong>disabled</strong></li>
+</ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -550,171 +758,375 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">Bit</th>
+<th style="text-align:left">Bit</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Bit 7</td>
+<td style="text-align:left">Bit 7</td>
 <td>BIOS Select<br>    - Single BIOS = 0<br>    - Fail-Safe-BIOS = 1</td>
 </tr>
 <tr>
-<td style="text-align:center">Bit 6</td>
+<td style="text-align:left">Bit 6</td>
 <td>ATX Mode<br>    - AT Mode = 0<br>    - ATX mode = 1</td>
 </tr>
 <tr>
-<td style="text-align:center">Bit 5</td>
+<td style="text-align:left">Bit 5</td>
 <td>reserved</td>
 </tr>
 <tr>
-<td style="text-align:center">Bit 0 - 4</td>
+<td style="text-align:left">Bit 0  - 4  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td>Exception Code <br><strong>Note</strong>: Code definition will be different for each hardware. please refer to <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.adlinktech.com/">ADLINK offifical Website</a> to search for the Hardware User Manual or use <strong>EApiGetExceptionDescription</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p><br></p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiBoardGetStringA(uint32_t Id, uint8_t *pData, uint32_t nSize)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">uint32_t</span> <span class="title">EApiBoardGetStringA</span><span class="params">(<span class="type">uint32_t</span> Id, <span class="type">uint8_t</span> *pData, <span class="type">uint32_t</span> nSize)</span></span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>   Information about the hardware platform.</p>
 <ul>
 <li><p>Parameters:</p>
 <ul>
-<li><p>uint32_t Id:</p>
-<p>Select ID number or Code name as the first parameter</p>
-<p>| ID                                         | Description                         | Format |<br>| ————————————————————— | —————————————————- | ——— |<br>| EAPI_ID_BOARD_MANUFACTURER_STR             | Board manufacturer name             | String |<br>| EAPI_ID_BOARD_NAME_STR                     | Board name                          | String |<br>| EAPI_ID_BOARD_SERIAL_STR                   | Serial number                       | String |<br>| EAPI_ID_BOARD_BIOS_REVISION_STR            | Board BIOS revision                 | String |<br>| EAPI_ID_BOARD_PLATFORM_TYPE_STR            | Platform ID                         | String |<br>| EAPI_ID_BOARD_HW_REVISION_STR              | HW revision string                  | String |<br>| SEMA_EAPI_ID_BOARD_BOOT_VERSION_STR        | Boot version string                 | String |<br>| SEMA_EAPI_ID_BOARD_APPLICATION_VERSION_STR | Firmware application version string | String |<br>| SEMA_EAPI_ID_BOARD_CHIPSET_ID_STR          | Chipset ID string                   | String |<br>| SEMA_EAPI_ID_BOARD_RESTART_EVENT_STR       | Restart Event string                | String |<br>| SEMA_EAPI_ID_BOARD_DEVICE_ID_STR           | Device ID string                    | String |<br>| SEMA_EAPI_ID_BOARD_REPAIR_DATE_STR         | Last Repair Date                    | String |<br>| SEMA_EAPI_ID_BOARD_MANUFACTURE_DATE_STR    | Manufacture date                    | String |<br>| SEMA_EAPI_ID_BOARD_MAC_STRING              | MAC address on module               | String |<br>| SEMA_EAPI_ID_BOARD_2ND_HW_REVISION_STR     | 2nd HW revision string              | String |<br>| SEMA_EAPI_ID_BOARD_2ND_SERIAL_STR          | 2nd HW serial string                | String |</p>
+<li><p><strong>uint32_t Id:</strong></p>
+<p>Select ID number or Code name as the first parameter and refer to the following table for more details.</p>
 </li>
-<li><p>uint8_t *pData:</p>
+<li><p><strong>uint8_t *pData:</strong></p>
 <p>Pointer to a buffer that receives the value’s data. This  parameter can be NULL if the data is not required.</p>
 </li>
-<li><p>uint32_t nSize:</p>
+<li><p><strong>uint32_t nSize:</strong></p>
 <p>Pointer to a variable that specifies the size, in bytes, of the buffer pointed to by the pBuffer parameter. When the function returns, this variable contains the size of the data copied to pBuffer including the terminating null character</p>
 </li>
 </ul>
 </li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EAPI_ID_BOARD_MANUFACTURER_STR</td>
+<td>Board manufacturer name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>EAPI_ID_BOARD_NAME_STR</td>
+<td>Board name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>EAPI_ID_BOARD_SERIAL_STR</td>
+<td>Serial number</td>
+<td>String</td>
+</tr>
+<tr>
+<td>EAPI_ID_BOARD_BIOS_REVISION_STR</td>
+<td>Board BIOS revision</td>
+<td>String</td>
+</tr>
+<tr>
+<td>EAPI_ID_BOARD_PLATFORM_TYPE_STR</td>
+<td>Platform ID</td>
+<td>String</td>
+</tr>
+<tr>
+<td>EAPI_ID_BOARD_HW_REVISION_STR</td>
+<td>HW revision string</td>
+<td>String</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_BOARD_BOOT_VERSION_STR</td>
+<td>Boot version string</td>
+<td>String</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_BOARD_APPLICATION_VERSION_STR</td>
+<td>Firmware application version string</td>
+<td>String</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_BOARD_CHIPSET_ID_STR</td>
+<td>Chipset ID string</td>
+<td>String</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_BOARD_RESTART_EVENT_STR</td>
+<td>Restart Event string</td>
+<td>String</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_BOARD_DEVICE_ID_STR</td>
+<td>Device ID string</td>
+<td>String</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_BOARD_REPAIR_DATE_STR</td>
+<td>Last Repair Date</td>
+<td>String</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_BOARD_MANUFACTURE_DATE_STR</td>
+<td>Manufacture date</td>
+<td>String</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_BOARD_MAC_STRING</td>
+<td>MAC address on module</td>
+<td>String</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_BOARD_2ND_HW_REVISION_STR</td>
+<td>2nd HW revision string</td>
+<td>String</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_BOARD_2ND_SERIAL_STR</td>
+<td>2nd HW serial string</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><br></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiBoardGetVoltageMonitor(uint8_t channel, uint32_t *pValue, char *pBuffer)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">uint32_t</span> <span class="title">EApiBoardGetVoltageMonitor</span><span class="params">(<span class="type">uint8_t</span> channel, <span class="type">uint32_t</span> *pValue, <span class="type">char</span> *pBuffer)</span></span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>   There will be different definition of Voltage on every channel for each hardware platform. please refer to <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.adlinktech.com/">ADLINK official website</a> to search for the Hardware User Manual.</p>
 <ul>
 <li><p>Parameters:</p>
 <ul>
-<li><p>uint8_t channel:<br>Select Channel number or Channel name as the first parameter<br>| ID                               | Description             | Format  | Units      |<br>| ———————————————— | ———————————- | ———- | ————— |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN0  | voltage from channel 0  | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN1  | voltage from channel 1  | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN2  | voltage from channel 2  | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN3  | voltage from channel 3  | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN4  | voltage from channel 4  | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN5  | voltage from channel 5  | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN6  | voltage from channel 6  | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN7  | voltage from channel 7  | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN8  | voltage from channel 8  | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN9  | voltage from channel 9  | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN10 | voltage from channel 10 | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN11 | voltage from channel 11 | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN12 | voltage from channel 12 | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN13 | voltage from channel 13 | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN14 | voltage from channel 14 | &amp;string | millivolts |<br>| SEMA_EAPI_ID_HWMON_VOLTAGE_AIN15 | voltage from channel 15 | &amp;string | millivolts |</p>
+<li><p><strong>uint8_t channel:</strong><br>Select Channel number or Channel name as the first parameter</p>
 </li>
-<li><p>uint32_t *pValue:</p>
+<li><p><strong>uint32_t *pValue:</strong></p>
 <p>Pointer to a buffer that receives the value’s data</p>
 </li>
-<li><p>char *pBuffer:</p>
+<li><p><strong>char *pBuffer:</strong></p>
 <p>Pointer to a buffer that receives the description string</p>
 </li>
 </ul>
 </li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiBoardGetErrorLog(</span><br><span class="line">        uint32_t  position,</span><br><span class="line">        uint32_t *ErrorNumber,</span><br><span class="line">        uint8_t  *Flags,</span><br><span class="line">        uint8_t  *RestartEvent,</span><br><span class="line">        uint32_t *PwrCycles,</span><br><span class="line">        uint32_t *Bootcount,</span><br><span class="line">        uint32_t *Time,</span><br><span class="line">        uint16_t *Status,</span><br><span class="line">        signed char *CPUtemp,</span><br><span class="line">        signed char *Boardtemp</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Description</th>
+<th>Format</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN0</td>
+<td>voltage from channel 0</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN1</td>
+<td>voltage from channel 1</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN2</td>
+<td>voltage from channel 2</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN3</td>
+<td>voltage from channel 3</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN4</td>
+<td>voltage from channel 4</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN5</td>
+<td>voltage from channel 5</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN6</td>
+<td>voltage from channel 6</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN7</td>
+<td>voltage from channel 7</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN8</td>
+<td>voltage from channel 8</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN9</td>
+<td>voltage from channel 9</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN10</td>
+<td>voltage from channel 10</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN11</td>
+<td>voltage from channel 11</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN12</td>
+<td>voltage from channel 12</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN13</td>
+<td>voltage from channel 13</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN14</td>
+<td>voltage from channel 14</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+<tr>
+<td>SEMA_EAPI_ID_HWMON_VOLTAGE_AIN15</td>
+<td>voltage from channel 15</td>
+<td>&amp;string</td>
+<td>millivolts</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiBoardGetErrorLog</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t  position,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t *ErrorNumber,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint8_t  *Flags,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint8_t  *RestartEvent,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t *PwrCycles,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t *Bootcount,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t *Time,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint16_t *Status,</span></span></span><br><span class="line"><span class="params"><span class="function">        signed <span class="built_in">char</span> *CPUtemp,</span></span></span><br><span class="line"><span class="params"><span class="function">        signed <span class="built_in">char</span> *Boardtemp</span></span></span><br><span class="line"><span class="params"><span class="function"></span>)</span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>Get Error number history in the BMC. Failures in the Power Sequence are shown on the BMC status LED at the time where the issue occurs. The Error Log buffer stores those Power Sequence issues in an Error Log buffer. Beside of the displayed Error Code, the Error Log also stores information about the actual state and counters for better tracking of the issues. The latest entry in the Error Log Buffer is always found on position 0. The previous entry is found on position 1 and so on.</p>
 <ul>
 <li><p>Parameters:</p>
 <ul>
-<li><p>uint32_t  position: </p>
+<li><p><strong>uint32_t  position:</strong> </p>
 <p>The pointer point to the log to be read</p>
 </li>
-<li><p>uint32_t *ErrorNumber:</p>
+<li><p><strong>uint32_t *ErrorNumber:</strong></p>
 <p>Error Number. To get the detailed description, please use <strong>EApiGetErrorNumberDescription</strong></p>
 </li>
-<li><p>uint8_t *Flags:</p>
+<li><p><strong>uint8_t *Flags:</strong></p>
 <p>Exception Code, selected BIOS and Power Mode ( see <strong>EApiBoardGetValue</strong> function and <code>SEMA_EAPI_ID_BOARD_BMC_FLAG</code> parameter to mention about the definition of Exception Flag). To get the detailed description from exception code, please use <strong>EApiGetExceptionDescription</strong></p>
 <p><strong>Note</strong>: Exception Code will be different for each hardware. please refer to <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.adlinktech.com/">ADLINK official website</a> to search for the Hardware User Manual to check your codes.</p>
 </li>
-<li><p>uint8_t *RestartEvent:</p>
+<li><p><strong>uint8_t *RestartEvent:</strong></p>
 <p>System Restart Event (see <strong>EApiBoardGetValue</strong> function and <code>SEMA_EAPI_ID_BOARD_RESTART_EVENT</code> parameter to mention about the definition of Restart Event)</p>
 </li>
-<li><p>uint32_t *PwrCycles:</p>
+<li><p><strong>uint32_t *PwrCycles:</strong></p>
 <p>Power Cycles Counter</p>
 </li>
-<li><p>uint32_t *Bootcount:<br>Boot Counter</p>
+<li><p><strong>uint32_t *Bootcount:</strong><br>Boot Counter</p>
 </li>
-<li><p>uint32_t *Time:</p>
+<li><p><strong>uint32_t *Time:</strong></p>
 <p>Ontime Counter (seconds)</p>
 </li>
-<li><p>uint16_t *Status:</p>
+<li><p><strong>uint16_t *Status:</strong></p>
 <p>Status information from BMC status command</p>
 </li>
-<li><p>signed char *CPUtemp:</p>
+<li><p><strong>signed char *CPUtemp:</strong></p>
 <p>Current CPU temperature (if available)</p>
 </li>
-<li><p>signed char *Boardtemp:</p>
+<li><p><strong>signed char *Boardtemp:</strong></p>
 <p>Current Board temperature (if available)</p>
 </li>
 </ul>
 </li>
 </ul>
 <p><br></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiBoardGetCurErrorLog(</span><br><span class="line">        uint32_t *ErrorNumber,</span><br><span class="line">        uint8_t  *Flags,</span><br><span class="line">        uint8_t  *RestartEvent,</span><br><span class="line">        uint32_t *PwrCycles,</span><br><span class="line">        uint32_t *Bootcount,</span><br><span class="line">        uint32_t *Time,</span><br><span class="line">        uint16_t *Status,</span><br><span class="line">        signed char *CPUtemp,</span><br><span class="line">        signed char *Boardtemp</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiBoardGetCurErrorLog</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t *ErrorNumber,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint8_t  *Flags,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint8_t  *RestartEvent,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t *PwrCycles,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t *Bootcount,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t *Time,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint16_t *Status,</span></span></span><br><span class="line"><span class="params"><span class="function">        signed <span class="built_in">char</span> *CPUtemp,</span></span></span><br><span class="line"><span class="params"><span class="function">        signed <span class="built_in">char</span> *Boardtemp</span></span></span><br><span class="line"><span class="params"><span class="function"></span>)</span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>Get Error number history in the BMC. Failures in the Power Sequence are shown on the BMC status LED at the time where the issue occurs. The Error Log buffer stores those Power Sequence issues in an Error Log buffer. Beside of the displayed Error Code, the Error Log also stores information about the actual state and counters for better tracking of the issues. After retrieving the Error Log, the position will be automatically moved to next position (previous record).</p>
 <ul>
 <li><p>Parameters:</p>
 <ul>
-<li><p>uint32_t *ErrorNumber:</p>
+<li><p><strong>uint32_t *ErrorNumber:</strong></p>
 <p>Error Number. To get the detailed description, please use <strong>EApiGetErrorNumberDescription</strong></p>
 </li>
-<li><p>uint8_t *Flags:</p>
+<li><p><strong>uint8_t *Flags:</strong></p>
 <p>Exception Code, selected BIOS and Power Mode ( see <strong>EApiBoardGetValue</strong> function and         <code>SEMA_EAPI_ID_BOARD_BMC_FLAG</code> parameter) To get the detailed description from exception code, please use <code>SemaEApiBoardGetExceptionDescription</code></p>
 <p><strong>Note</strong>: Exception Code will be different for the platforms. please refer to <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.adlinktech.com/">ADLINK official website</a> to search for the Hardware User Manual to check your codes.</p>
 </li>
-<li><p>uint8_t *RestartEvent:</p>
+<li><p><strong>uint8_t *RestartEvent:</strong></p>
 <p>System Restart Event (see <strong>EApiBoardGetValue</strong> function and <code>SEMA_EAPI_ID_BOARD_RESTART_EVENT</code> parameter to mention about the definition of Restart Event)</p>
 </li>
-<li><p>uint32_t *PwrCycles:</p>
+<li><p><strong>uint32_t *PwrCycles:</strong></p>
 <p>Power Cycles Counter</p>
 </li>
-<li><p>uint32_t *Bootcount:</p>
+<li><p><strong>uint32_t *Bootcount:</strong></p>
 <p>Boot Counter</p>
 </li>
-<li><p>uint32_t *Time:</p>
+<li><p><strong>uint32_t *Time:</strong></p>
 <p>Ontime Counter (seconds)</p>
 </li>
-<li><p>uint16_t *Status:</p>
+<li><p><strong>uint16_t *Status:</strong></p>
 <p>Status information from BMC status command</p>
 </li>
-<li><p>signed char *CPUtemp:</p>
+<li><p><strong>signed char *CPUtemp:</strong></p>
 <p>Current CPU temperature (if available)</p>
 </li>
-<li><p>signed char *Boardtemp:</p>
+<li><p><strong>signed char *Boardtemp:</strong></p>
 <p>Current Board temperature (if available)</p>
 </li>
 </ul>
 </li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiGetErrorNumberDescription(uint32_t ErrorNum, uint8_t* pBuffer)</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiGetErrorNumberDescription</span>(<span class="params">uint32_t ErrorNum, uint8_t* pBuffer</span>)</span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>Get text information of the Error number in the error log (get from <strong>EApiBoardGetErrorLog</strong>).</p>
 <ul>
 <li><p>Parameters:</p>
 <ul>
-<li><p>uint32_t ErrorNum:</p>
+<li><p><strong>uint32_t ErrorNum:</strong></p>
 <p>The Error number (Exception Code) ( Please refer to <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.adlinktech.com/">ADLINK offifical Website</a> to search for Hardware User Manual)</p>
 </li>
-<li><p>uint8_t* pBuffer:</p>
+<li><p><strong>uint8_t* pBuffer:</strong></p>
 <p>The description of error number.</p>
 </li>
 </ul>
 </li>
 </ul>
 <p><br></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiGetExceptionDescription(uint32_t ErrorCode, uint8_t* pBuffer)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiGetExceptionDescription</span>(<span class="params">uint32_t ErrorCode, uint8_t* pBuffer</span>)</span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>Get text information of the Exception Code</p>
 <ul>
 <li><p>Parameters:</p>
 <ul>
-<li><p>uint32_t ErrorNum:</p>
+<li><p><strong>uint32_t ErrorNum:</strong></p>
 <p>The Error number (Exception Code)  ( Please refer to <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.adlinktech.com/">ADLINK offifical Website</a> to search for Hardware User Manual)</p>
 </li>
-<li><p>uint8_t* pBuffer:</p>
+<li><p><strong>uint8_t* pBuffer:</strong></p>
 <p>The description of error number</p>
 </li>
 </ul>
@@ -723,7 +1135,7 @@
 
               </div>
               <footer class="article-footer">
-                <a href="DeveloperGuide.html" class="article-footer-prev" title="Feature List"><i class="fa fa-chevron-left"></i><span>prev</span></a><a href="WatchDog.html" class="article-footer-next" title="-Watchdog Access"><span>next</span><i class="fa fa-chevron-right"></i></a>
+                <a href="DeveloperGuide.html" class="article-footer-prev" title="Feature Set"><i class="fa fa-chevron-left"></i><span>prev</span></a><a href="WatchDog.html" class="article-footer-next" title="-Watchdog Access"><span>next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
           </div>
@@ -731,7 +1143,7 @@
       </article>
       <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title"><details open><summary>Overview</summary><a href="index.html" class="sidebar-link first">Introduction</a></details open></strong><strong class="sidebar-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="sidebar-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="sidebar-link">How to Install on Windows</a><a href="HowToUse.html" class="sidebar-link">How to use SEMA Utility</a></details open></strong><strong class="sidebar-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="sidebar-link first">Feature List</a><a href="BoardInfo.html" class="sidebar-link current">-Board Infomration</a><a href="WatchDog.html" class="sidebar-link">-Watchdog Access</a><a href="GPIO.html" class="sidebar-link">-GPIO Access</a><a href="Backlight.html" class="sidebar-link">-Backlight Control</a><a href="i2c.html" class="sidebar-link">-I2C Control</a><a href="SmartFan.html" class="sidebar-link">-Smart Fan Control</a><a href="Storage.html" class="sidebar-link">-Storage Access</a></details open></strong>
+    <strong class="sidebar-title"><details open><summary>Overview</summary><a href="index.html" class="sidebar-link first">Introduction</a></details open></strong><strong class="sidebar-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="sidebar-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="sidebar-link">How to Install on Windows</a><a href="HowToUse.html" class="sidebar-link">How to use SEMA Utility</a></details open></strong><strong class="sidebar-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="sidebar-link first">Feature Set</a><a href="BoardInfo.html" class="sidebar-link current">-Board Infomration</a><a href="WatchDog.html" class="sidebar-link">-Watchdog Access</a><a href="GPIO.html" class="sidebar-link">-GPIO Access</a><a href="Backlight.html" class="sidebar-link">-Backlight Control</a><a href="i2c.html" class="sidebar-link">-I2C Control</a><a href="SmartFan.html" class="sidebar-link">-Smart Fan Control</a><a href="Storage.html" class="sidebar-link">-Storage Access</a></details open></strong>
   </div>
 </aside>
     </div>
@@ -791,7 +1203,7 @@
  
     </ul>
     
-      <strong class="mobile-nav-title"><details open><summary>Overview</summary><a href="index.html" class="mobile-nav-link first">Introduction</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="mobile-nav-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="mobile-nav-link">How to Install on Windows</a><a href="HowToUse.html" class="mobile-nav-link">How to use SEMA Utility</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="mobile-nav-link first">Feature List</a><a href="BoardInfo.html" class="mobile-nav-link current">-Board Infomration</a><a href="WatchDog.html" class="mobile-nav-link">-Watchdog Access</a><a href="GPIO.html" class="mobile-nav-link">-GPIO Access</a><a href="Backlight.html" class="mobile-nav-link">-Backlight Control</a><a href="i2c.html" class="mobile-nav-link">-I2C Control</a><a href="SmartFan.html" class="mobile-nav-link">-Smart Fan Control</a><a href="Storage.html" class="mobile-nav-link">-Storage Access</a></details open></strong>
+      <strong class="mobile-nav-title"><details open><summary>Overview</summary><a href="index.html" class="mobile-nav-link first">Introduction</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="mobile-nav-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="mobile-nav-link">How to Install on Windows</a><a href="HowToUse.html" class="mobile-nav-link">How to use SEMA Utility</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="mobile-nav-link first">Feature Set</a><a href="BoardInfo.html" class="mobile-nav-link current">-Board Infomration</a><a href="WatchDog.html" class="mobile-nav-link">-Watchdog Access</a><a href="GPIO.html" class="mobile-nav-link">-GPIO Access</a><a href="Backlight.html" class="mobile-nav-link">-Backlight Control</a><a href="i2c.html" class="mobile-nav-link">-I2C Control</a><a href="SmartFan.html" class="mobile-nav-link">-Smart Fan Control</a><a href="Storage.html" class="mobile-nav-link">-Storage Access</a></details open></strong>
     
   </div>
   

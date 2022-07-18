@@ -71,8 +71,8 @@
 <meta property="og:description" content="Provide an interface to access I2C devices. Please refer to the Hardware User Manual to check how many i2c interfaces which supported on your products Note: Only available with Tiva BMC and can’t be s">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://adlinktech.github.io/sema/i2c.assets/image-20200624145823777.png">
-<meta property="article:published_time" content="2022-07-01T19:50:18.873Z">
-<meta property="article:modified_time" content="2022-07-01T17:12:17.159Z">
+<meta property="article:published_time" content="2022-07-18T15:06:28.749Z">
+<meta property="article:modified_time" content="2022-07-18T15:06:28.749Z">
 <meta property="article:author" content="ADLINK Technology Inc. All Rights Reserved.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://adlinktech.github.io/sema/i2c.assets/image-20200624145823777.png">
@@ -132,7 +132,7 @@
                 <p>Provide an interface to access I2C devices. Please refer to the Hardware User Manual to check how many i2c interfaces which supported on your products</p>
 <p><strong>Note:</strong> Only available with Tiva BMC and can’t be supported on Renesas BMC.</p>
 <p><br></p>
-<h4 id="How-to-use-in-Linux" class="article-heading"><a href="#How-to-use-in-Linux" class="headerlink" title="How to use in Linux"></a>How to use in Linux<a onclick="parent.postMessage( {msg: '?page=i2c.html#How-to-use-in-Linux'}, '*');" class="article-anchor" href="#How-to-use-in-Linux" aria-hidden="true"></a></h4><p>After adl-bmc-i2c driver loaded, please use <code>i2cdetect</code> command to look for <strong>ADLINK BMC I2C driver</strong>. Then, you can use <code>i2c-tools</code> commands to access your devices.</p>
+<h2 id="How-to-use-in-Linux" class="article-heading"><a href="#How-to-use-in-Linux" class="headerlink" title="How to use in Linux"></a>How to use in Linux<a onclick="parent.postMessage( {msg: '?page=i2c.html#How-to-use-in-Linux'}, '*');" class="article-anchor" href="#How-to-use-in-Linux" aria-hidden="true"></a></h2><p>After adl-bmc-i2c driver loaded, please use <code>i2cdetect</code> command to look for <strong>ADLINK BMC I2C driver</strong>. Then, you can use <code>i2c-tools</code> commands to access your devices.</p>
 <p>   <img src="i2c.assets/image-20200624145823777.png" alt="install4"></p>
 <p><strong>Note:</strong> please refer to <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.mankier.com/package/i2c-tools">here</a> to guide you how to use i2c-tools command</p>
 <div class="table-container">
@@ -164,42 +164,78 @@
 </table>
 </div>
 <p><br></p>
-<h4 id="List-of-SEMA-EAPI-Only-for-Windows" class="article-heading"><a href="#List-of-SEMA-EAPI-Only-for-Windows" class="headerlink" title="List of SEMA EAPI (Only for Windows)"></a>List of SEMA EAPI (Only for Windows)<a onclick="parent.postMessage( {msg: '?page=i2c.html#List-of-SEMA-EAPI-Only-for-Windows'}, '*');" class="article-anchor" href="#List-of-SEMA-EAPI-Only-for-Windows" aria-hidden="true"></a></h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiI2CGetBusCap(uint32_t Id, uint32_t *pMaxBlkLen)</span><br></pre></td></tr></table></figure>
+<h2 id="SEMA-EAPI-Only-for-Windows" class="article-heading"><a href="#SEMA-EAPI-Only-for-Windows" class="headerlink" title="SEMA EAPI (Only for Windows)"></a>SEMA EAPI (Only for Windows)<a onclick="parent.postMessage( {msg: '?page=i2c.html#SEMA-EAPI-Only-for-Windows'}, '*');" class="article-anchor" href="#SEMA-EAPI-Only-for-Windows" aria-hidden="true"></a></h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiI2CGetBusCap</span>(<span class="params">uint32_t Id, uint32_t *pMaxBlkLen</span>)</span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>Returns the capabilities of the selected I2C bus.</p>
-<ul>
-<li><p>Parameters:</p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><p>uint32_t Id:</p>
 <p>Select i2c Bus ID as the first parameter</p>
-<p>| ID                   | Description             |<br>| —————————— | ———————————- |<br>| EAPI_ID_I2C_EXTERNAL | Baseboard I2C Interface |<br>| EAPI_ID_I2C_LVDS_1   | LVDS/EDP 1 Interface    |</p>
-</li>
-<li><p>uint32_t *pMaxBlkLen:</p>
-<p>Size in bytes, pointer to a buffer that receives the maximum transfer block length for the given      interface. Note that care must be taken if used in combination <code>withEapiI2CWriteTransfer</code> as the maximum data payload length will be pMaxBlkLen (write overhead). For example, a 7-bit addressed device with extended command has a write overhead of 2 bytes which are command.</p>
 </li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EAPI_ID_I2C_EXTERNAL</td>
+<td>Baseboard I2C Interface</td>
+</tr>
+<tr>
+<td>EAPI_ID_I2C_LVDS_1</td>
+<td>LVDS/EDP 1 Interface</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>uint32_t *pMaxBlkLen:</p>
+<p>Size in bytes, pointer to a buffer that receives the maximum transfer block length for the given interface. Note that care must be taken if used in combination <code>withEapiI2CWriteTransfer</code> as the maximum data payload length will be pMaxBlkLen (write overhead). For example, a 7-bit addressed device with extended command has a write overhead of 2 bytes which are command.</p>
 </li>
 </ul>
 <p>  <strong>Note</strong>: Max length of data byte to write is <strong>29 Bytes</strong>; Max length of data byte to read is <strong>32 Bytes</strong></p>
-<p><br><br><br></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiI2CProbeDevice(uint32_t Id, uint32_t Addr)</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiI2CProbeDevice</span>(<span class="params">uint32_t Id, uint32_t Addr</span>)</span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>Probes I2C address to test I2C Device present</p>
-<ul>
-<li><p>Parameters:</p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><p>uint32_t Id:</p>
 <p>Select i2c Bus ID as the first parameter</p>
-<p>| ID                   | Description             |<br>| —————————— | ———————————- |<br>| EAPI_ID_I2C_EXTERNAL | Baseboard I2C Interface |<br>| EAPI_ID_I2C_LVDS_1   | LVDS/EDP 1 Interface    |</p>
 </li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EAPI_ID_I2C_EXTERNAL</td>
+<td>Baseboard I2C Interface</td>
+</tr>
+<tr>
+<td>EAPI_ID_I2C_LVDS_1</td>
+<td>LVDS/EDP 1 Interface</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
 <li><p>uint32_t Addr:</p>
 <p>Encoded 7 bit I2C device address</p>
 </li>
 </ul>
-</li>
-</ul>
 <p> <br></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiI2CGetBusSts(uint32_t Id, uint8_t *sts)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiI2CGetBusSts</span>(<span class="params">uint32_t Id, uint8_t *sts</span>)</span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>Gets current status of the I2C bus.</p>
 <ul>
@@ -207,26 +243,110 @@
 <ul>
 <li><p>uint32_t Id:</p>
 <p>Select i2c Bus ID as the first parameter</p>
-<p>| ID                   | Description             |<br>| —————————— | ———————————- |<br>| EAPI_ID_I2C_EXTERNAL | Baseboard I2C Interface |<br>| EAPI_ID_I2C_LVDS_1   | LVDS/EDP 1 Interface    |</p>
 </li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EAPI_ID_I2C_EXTERNAL</td>
+<td>Baseboard I2C Interface</td>
+</tr>
+<tr>
+<td>EAPI_ID_I2C_LVDS_1</td>
+<td>LVDS/EDP 1 Interface</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
 <li><p>uint8_t *sts:</p>
 <p>This describes the definition of I2C bus status:</p>
-<p>| Bit   | Description                                                  |<br>| ——- | —————————————————————————————— |<br>| Bit 7 | I2C_MASTER_ERR_CLK_TOUT<br>     No Error = 0<br>     Clock Timeout Error = 1 |<br>| Bit 6 | reserved                                                     |<br>| Bit 5 | I2C Transaction timeout <br>      - No error = 0<br>   - Transaction timeout error = 1 |<br>| Bit 4 | I2C_MASTER_ERR_ARB_LOST <br>      - No error = 0<br>      - Arbitration error = 1 |<br>| Bit 3 | I2C_MASTER_ERR_DATA_ACK <br>      - No error = 0<br>      - Data acknowledge error = 1 |<br>| Bit 2 | I2C_MASTER_ERR_ADDR_ACK <br>      - No error = 0<br>      - Address acknowledge error = 1 |<br>| Bit 1 | I2C Transaction result <br>       - Transaction ok = 0 <br>     - No data send/received = 1 |<br>| Bit 0 | I2C Bus status <br>               - I2C transaction ongoing = 0  <br>    - I2C bus is free = 1 |</p>
 </li>
 </ul>
-</li>
-</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bit 7</td>
+<td>I2C_MASTER_ERR_CLK_TOUT<br>     No Error = 0<br>     Clock Timeout Error = 1</td>
+</tr>
+<tr>
+<td>Bit 6</td>
+<td>reserved</td>
+</tr>
+<tr>
+<td>Bit 5</td>
+<td>I2C Transaction timeout <br>      - No error = 0<br>   - Transaction timeout error = 1</td>
+</tr>
+<tr>
+<td>Bit 4</td>
+<td>I2C_MASTER_ERR_ARB_LOST <br>      - No error = 0<br>      - Arbitration error = 1</td>
+</tr>
+<tr>
+<td>Bit 3</td>
+<td>I2C_MASTER_ERR_DATA_ACK <br>      - No error = 0<br>      - Data acknowledge error = 1</td>
+</tr>
+<tr>
+<td>Bit 2</td>
+<td>I2C_MASTER_ERR_ADDR_ACK <br>      - No error = 0<br>      - Address acknowledge error = 1</td>
+</tr>
+<tr>
+<td>Bit 1</td>
+<td>I2C Transaction result <br>       - Transaction ok = 0 <br>     - No data send/received = 1</td>
+</tr>
+<tr>
+<td>Bit 0</td>
+<td>I2C Bus status <br>               - I2C transaction ongoing = 0  <br>    - I2C bus is free = 1</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p> <br></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiI2CReadTransfer(</span><br><span class="line">        uint32_t Id,</span><br><span class="line">        uint32_t Addr,</span><br><span class="line">        uint32_t Cmd,</span><br><span class="line">        void *pBuffer,</span><br><span class="line">        uint32_t BufLen,</span><br><span class="line">        uint32_t ByteCnt</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiI2CReadTransfer</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t Id,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t Addr,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t Cmd,</span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="keyword">void</span> *pBuffer,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t BufLen,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t ByteCnt</span></span></span><br><span class="line"><span class="params"><span class="function"></span>)</span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>Reads from a specific register in the selected I2C device. Reads from I2C device at the I2C address Addr the amount of ByteCnt bytes to the buffer pBuffer while using the device specific command Cmd. Depending on the addressed I2C device Cmd can be a specific command or a byte offset.</p>
-<ul>
-<li><p>Parameters:</p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><p>uint32_t Id:</p>
 <p>Select i2c Bus ID as the first parameter</p>
-<p>| ID                   | Description             |<br>| —————————— | ———————————- |<br>| EAPI_ID_I2C_EXTERNAL | Baseboard I2C Interface |<br>| EAPI_ID_I2C_LVDS_1   | LVDS/EDP 1 Interface    |</p>
 </li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EAPI_ID_I2C_EXTERNAL</td>
+<td>Baseboard I2C Interface</td>
+</tr>
+<tr>
+<td>EAPI_ID_I2C_LVDS_1</td>
+<td>LVDS/EDP 1 Interface</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
 <li><p>uint32_t Addr:</p>
 <p>Encoded 7 Bit I2C Device Address.</p>
 </li>
@@ -234,7 +354,7 @@
 <p>Encoded I2C Device Command / Index.</p>
 </li>
 <li><p>void *pBuffer:</p>
-<p>Pointer to a buffer that receives the read data. This parameter can be NULL if the data is not     required</p>
+<p>Pointer to a buffer that receives the read data. This parameter can be NULL if the data is not required</p>
 </li>
 <li><p>uint32_t BufLen:</p>
 <p>Size, in bytes, of the buffer pointed to by the pBuffer parameter. If the buffer specified by pBuffer parameter is not large enough to hold the data, the function returns the value  <code>EAPI_STATUS_MORE_DATA</code></p>
@@ -243,19 +363,37 @@
 <p>Size in bytes of data to be read</p>
 </li>
 </ul>
-</li>
-</ul>
 <p><br> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiI2CWriteTransfer(</span><br><span class="line">        uint32_t Id,</span><br><span class="line">        uint32_t Addr,</span><br><span class="line">        uint32_t Cmd,</span><br><span class="line">        void *pBuffer,</span><br><span class="line">        uint32_t ByteCnt</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiI2CWriteTransfer</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t Id,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t Addr,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t Cmd,</span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="keyword">void</span> *pBuffer,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t ByteCnt</span></span></span><br><span class="line"><span class="params"><span class="function"></span>)</span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>Write to a specific register in the selected I2C device. Writes to an I2C device at the I2C address Addr the amount of ByteCnt bytes from the buffer *pBuffer while using the device specific command Cmd. Depending on the addressed I2C device Cmd can be a specific command or a byte offset.</p>
-<ul>
-<li><p>Parameters:</p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><p>uint32_t Id:</p>
 <p>Select i2c Bus ID as the first parameter</p>
-<p>| ID                   | Description             |<br>| —————————— | ———————————- |<br>| EAPI_ID_I2C_EXTERNAL | Baseboard I2C Interface |<br>| EAPI_ID_I2C_LVDS_1   | LVDS/EDP 1 Interface    |</p>
 </li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EAPI_ID_I2C_EXTERNAL</td>
+<td>Baseboard I2C Interface</td>
+</tr>
+<tr>
+<td>EAPI_ID_I2C_LVDS_1</td>
+<td>LVDS/EDP 1 Interface</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
 <li><p>uint32_t Addr:</p>
 <p>Encoded 7 Bit I2C Device Address.</p>
 </li>
@@ -263,25 +401,43 @@
 <p>Encoded I2C Device Command / Index.</p>
 </li>
 <li><p>void *pBuffer:</p>
-<p>Pointer to a buffer that receives the read data. This parameter can be NULL if the data is not     required</p>
+<p>Pointer to a buffer that receives the read data. This parameter can be NULL if the data is not required</p>
 </li>
 <li><p>uint32_t ByteCnt:</p>
 <p>Size, in bytes, of the information pointed to by the pBuffer parameter</p>
 </li>
 </ul>
-</li>
-</ul>
 <p> <br></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint32_t EApiI2CWriteReadRaw(</span><br><span class="line">        uint32_t Id,</span><br><span class="line">        uint8_t Addr,</span><br><span class="line">        void *pWBuffer,</span><br><span class="line">        uint32_t WriteBCnt,</span><br><span class="line">        void *pRBuffer,</span><br><span class="line">        uint32_t RBufLen,</span><br><span class="line">        uint32_t ReadBCnt</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function">uint32_t <span class="title">EApiI2CWriteReadRaw</span>(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t Id,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint8_t Addr,</span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="keyword">void</span> *pWBuffer,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t WriteBCnt,</span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="keyword">void</span> *pRBuffer,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t RBufLen,</span></span></span><br><span class="line"><span class="params"><span class="function">        uint32_t ReadBCnt</span></span></span><br><span class="line"><span class="params"><span class="function"></span>)</span></span><br></pre></td></tr></table></figure>
 <p><strong>Description</strong></p>
 <p>Universal function for read and write operations to the I2C bus. Refer to PICMG EAPI 1.0</p>
-<ul>
-<li><p>Parameters:</p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><p>uint32_t Id:</p>
 <p>Select i2c Bus ID as the first parameter</p>
-<p>| ID                   | Description             |<br>| —————————— | ———————————- |<br>| EAPI_ID_I2C_EXTERNAL | Baseboard I2C Interface |<br>| EAPI_ID_I2C_LVDS_1   | LVDS/EDP 1 Interface    |</p>
 </li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EAPI_ID_I2C_EXTERNAL</td>
+<td>Baseboard I2C Interface</td>
+</tr>
+<tr>
+<td>EAPI_ID_I2C_LVDS_1</td>
+<td>LVDS/EDP 1 Interface</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
 <li><p>uint32_t Addr:</p>
 <p>Encoded 7 Bit I2C Device Address.</p>
 </li>
@@ -289,18 +445,16 @@
 <p>Pointer to a buffer containing the data to be transferred. This parameter can be NULL if the data is not required</p>
 </li>
 <li><p>uint32_t WriteBCnt:</p>
-<p>Size, in bytes, of the information pointed to by the pWBuffer parameter plus 1 If pWBuffer is          NULL this must be zero or one.</p>
+<p>Size, in bytes, of the information pointed to by the pWBuffer parameter plus 1 If pWBuffer is NULL this must be zero or one.</p>
 </li>
 <li><p>void *pRBuffer:</p>
-<p>Pointer to a buffer that receives the read data. This parameter can be NULL if the data is not              required.</p>
+<p>Pointer to a buffer that receives the read data. This parameter can be NULL if the data is not  required.</p>
 </li>
 <li><p>uint32_t RBufLen:</p>
-<p>Size, in bytes, of the buffer pointed to by the pRBuffer parameter. If the buffer specified by                pRBuffer parameter is not large enough to hold the data, the function returns the value                  <code>EAPI_STATUS_MORE_DATA</code> If pRBuffer is NULL this must be zero.</p>
+<p>Size, in bytes, of the buffer pointed to by the pRBuffer parameter. If the buffer specified by pRBuffer parameter is not large enough to hold the data, the function returns the value <code>EAPI_STATUS_MORE_DATA</code> If pRBuffer is NULL this must be zero.</p>
 </li>
 <li><p>uint32_t ReadBCnt:</p>
 <p>Size, in bytes, to be read to pRBuffer plus 1. If pRBuffer is NULL, this must be zero or one.</p>
-</li>
-</ul>
 </li>
 </ul>
 
@@ -314,7 +468,7 @@
       </article>
       <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title"><details open><summary>Overview</summary><a href="index.html" class="sidebar-link first">Introduction</a></details open></strong><strong class="sidebar-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="sidebar-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="sidebar-link">How to Install on Windows</a><a href="HowToUse.html" class="sidebar-link">How to use SEMA Utility</a></details open></strong><strong class="sidebar-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="sidebar-link first">Feature List</a><a href="BoardInfo.html" class="sidebar-link">-Board Infomration</a><a href="WatchDog.html" class="sidebar-link">-Watchdog Access</a><a href="GPIO.html" class="sidebar-link">-GPIO Access</a><a href="Backlight.html" class="sidebar-link">-Backlight Control</a><a href="i2c.html" class="sidebar-link current">-I2C Control</a><a href="SmartFan.html" class="sidebar-link">-Smart Fan Control</a><a href="Storage.html" class="sidebar-link">-Storage Access</a></details open></strong>
+    <strong class="sidebar-title"><details open><summary>Overview</summary><a href="index.html" class="sidebar-link first">Introduction</a></details open></strong><strong class="sidebar-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="sidebar-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="sidebar-link">How to Install on Windows</a><a href="HowToUse.html" class="sidebar-link">How to use SEMA Utility</a></details open></strong><strong class="sidebar-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="sidebar-link first">Feature Set</a><a href="BoardInfo.html" class="sidebar-link">-Board Infomration</a><a href="WatchDog.html" class="sidebar-link">-Watchdog Access</a><a href="GPIO.html" class="sidebar-link">-GPIO Access</a><a href="Backlight.html" class="sidebar-link">-Backlight Control</a><a href="i2c.html" class="sidebar-link current">-I2C Control</a><a href="SmartFan.html" class="sidebar-link">-Smart Fan Control</a><a href="Storage.html" class="sidebar-link">-Storage Access</a></details open></strong>
   </div>
 </aside>
     </div>
@@ -374,7 +528,7 @@
  
     </ul>
     
-      <strong class="mobile-nav-title"><details open><summary>Overview</summary><a href="index.html" class="mobile-nav-link first">Introduction</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="mobile-nav-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="mobile-nav-link">How to Install on Windows</a><a href="HowToUse.html" class="mobile-nav-link">How to use SEMA Utility</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="mobile-nav-link first">Feature List</a><a href="BoardInfo.html" class="mobile-nav-link">-Board Infomration</a><a href="WatchDog.html" class="mobile-nav-link">-Watchdog Access</a><a href="GPIO.html" class="mobile-nav-link">-GPIO Access</a><a href="Backlight.html" class="mobile-nav-link">-Backlight Control</a><a href="i2c.html" class="mobile-nav-link current">-I2C Control</a><a href="SmartFan.html" class="mobile-nav-link">-Smart Fan Control</a><a href="Storage.html" class="mobile-nav-link">-Storage Access</a></details open></strong>
+      <strong class="mobile-nav-title"><details open><summary>Overview</summary><a href="index.html" class="mobile-nav-link first">Introduction</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Getting Started</summary><a href="HowToInstallonLinux.html" class="mobile-nav-link first">How to Install on Linux</a><a href="HowToInstallonWindows.html" class="mobile-nav-link">How to Install on Windows</a><a href="HowToUse.html" class="mobile-nav-link">How to use SEMA Utility</a></details open></strong><strong class="mobile-nav-title"><details open><summary>Developer's Guid</summary><a href="DeveloperGuide.html" class="mobile-nav-link first">Feature Set</a><a href="BoardInfo.html" class="mobile-nav-link">-Board Infomration</a><a href="WatchDog.html" class="mobile-nav-link">-Watchdog Access</a><a href="GPIO.html" class="mobile-nav-link">-GPIO Access</a><a href="Backlight.html" class="mobile-nav-link">-Backlight Control</a><a href="i2c.html" class="mobile-nav-link current">-I2C Control</a><a href="SmartFan.html" class="mobile-nav-link">-Smart Fan Control</a><a href="Storage.html" class="mobile-nav-link">-Storage Access</a></details open></strong>
     
   </div>
   
