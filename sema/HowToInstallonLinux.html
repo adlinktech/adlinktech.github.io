@@ -70,13 +70,13 @@
 <meta property="og:site_name" content="ADLINK SEMA®">
 <meta property="og:description" content="SEMA® - EC controller     SEMA® - TivaBMC controller       Supported Hardware    cExpress-TL , cExpress-EL, cExpress-AR   Express-ID7, Express-ADP, Express-TL   COM-HPC-cADP, COM-HPC-sIDH   LEC-EL">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://adlinktech.github.io/sema/HowtoInstallonLinux.assets/load_i2c_i801-16565834413265.png">
+<meta property="og:image" content="https://adlinktech.github.io/sema/HowToInstallonLinux.assets/image-20220830142447629.png">
 <meta property="og:image" content="https://adlinktech.github.io/sema/HowtoInstallonLinux.assets/imag2-16565820733673.png">
-<meta property="article:published_time" content="2022-07-18T13:23:43.470Z">
-<meta property="article:modified_time" content="2022-07-18T13:23:43.470Z">
+<meta property="article:published_time" content="2022-08-30T06:26:19.865Z">
+<meta property="article:modified_time" content="2022-08-30T06:26:19.865Z">
 <meta property="article:author" content="ADLINK Technology Inc. All Rights Reserved.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://adlinktech.github.io/sema/HowtoInstallonLinux.assets/load_i2c_i801-16565834413265.png">
+<meta name="twitter:image" content="https://adlinktech.github.io/sema/HowToInstallonLinux.assets/image-20220830142447629.png">
   <!-- Google Analytics -->
   
 <script>
@@ -208,19 +208,23 @@
 
    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/modprobe.d/blacklist.conf</span><br></pre></td></tr></table></figure>
 
-2. Comment <strong>#blacklist i2c_i801</strong>, as exemplified below
+2. uncomment <strong>blacklist i2c_i801</strong>, as exemplified below
 
-   <img src="HowtoInstallonLinux.assets/load_i2c_i801-16565834413265.png" alt="load_i2c_i801">
+   <img src="HowToInstallonLinux.assets/image-20220830142447629.png" alt="image-20220830142447629" style="zoom: 80%;">
 
-3. Reboot your system
+3. Enter the command to make it affect
+
+   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo update-initramfs -u</span><br></pre></td></tr></table></figure>
+
+4. Reboot your system
 
    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo reboot</span><br></pre></td></tr></table></figure>
 
-4. Install build-essential packages and download and compile sema source code by executing the following commands in sequence:
+5. Install build-essential packages and download and compile sema source code by executing the following commands in sequence:
 
    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo apt install build-essential git hexer i2c-tools</span><br><span class="line">$ git clone https://github.com/ADLINK/sema-linux.git -b sema-bmc</span><br><span class="line">$ cd sema-linux</span><br><span class="line">$ sudo make</span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
 
-5. When finished, please type the following command to load all drivers:
+6. When finished, please type the following command to load all drivers:
 
    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo modprobe -a adl-bmc adl-bmc-boardinfo adl-bmc-vm adl-bmc-wdt adl-bmc-hwmon adl-bmc-nvmem adl-bmc-bklight adl-bmc-i2c</span><br></pre></td></tr></table></figure>
 
@@ -243,7 +247,7 @@
      </tbody>
    </table>
 
-6. After loading kernel driver, configure PCA95xx GPIO driver by executing the following command
+7. After loading kernel driver, configure PCA95xx GPIO driver by executing the following command
 
    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ echo pca9535 0x20 &gt; /sys/bus/i2c/devices/i2c-12/new_device</span><br></pre></td></tr></table></figure>
 
